@@ -125,21 +125,36 @@
       });
   }
 
-  // ─── Interactive Sticky Note & Card Wobble / Vibration on Click ───
-  function attachWobble(selector) {
-    const el = document.querySelector(selector);
-    if (!el) return;
-    el.addEventListener('click', function (e) {
-      if (e.target.closest('a, button, input, [role="button"]')) return;
-      el.classList.remove('sticky-wobble');
-      void el.offsetWidth; // trigger reflow
-      el.classList.add('sticky-wobble');
+  // ─── Tactile Click Animations (Polaroid Spring & Sticky Note Peel) ───
+  const polaroidEl = document.querySelector('.polaroid-frame');
+  if (polaroidEl) {
+    polaroidEl.addEventListener('click', function (e) {
+      if (e.target.closest('a, button, [role="button"]')) return;
+      polaroidEl.classList.remove('clicked');
+      void polaroidEl.offsetWidth; // trigger reflow
+      polaroidEl.classList.add('clicked');
     });
   }
 
-  attachWobble('.yellow-note-card');
-  attachWobble('.github-card');
-  attachWobble('.polaroid-frame');
+  const yellowNoteEl = document.querySelector('.yellow-note-card');
+  if (yellowNoteEl) {
+    yellowNoteEl.addEventListener('click', function (e) {
+      if (e.target.closest('a, button, [role="button"]')) return;
+      yellowNoteEl.classList.remove('sticky-peel');
+      void yellowNoteEl.offsetWidth; // trigger reflow
+      yellowNoteEl.classList.add('sticky-peel');
+    });
+  }
+
+  const githubCardEl = document.querySelector('.github-card');
+  if (githubCardEl) {
+    githubCardEl.addEventListener('click', function (e) {
+      if (e.target.closest('a, button, [role="button"]')) return;
+      githubCardEl.classList.remove('sticky-wobble');
+      void githubCardEl.offsetWidth; // trigger reflow
+      githubCardEl.classList.add('sticky-wobble');
+    });
+  }
 
   // ─── Current Year in Footer ───
   const yearEl = document.getElementById('current-year');

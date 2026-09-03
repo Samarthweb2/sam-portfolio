@@ -16,7 +16,7 @@
   --color-chalk-white: #F5ECE3;
   --color-chalk-orange: #E35342;
   --color-chalk-yellow: #F2C94C;
-  --content-max-canvas: 1100px;
+  --content-max-canvas: 760px;
 }
 
 /* ---------- Base Reset & Body ---------- */
@@ -338,7 +338,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* ---------- Polaroid Photo Card with Pushpin (Arjun Exact Dimensions) ---------- */
+/* ---------- Polaroid Photo Card with Pushpin (Arjun Exact Tilt & Proportions) ---------- */
 .polaroid-wrapper {
   position: relative;
   display: inline-block;
@@ -348,28 +348,42 @@ body {
 .polaroid-frame {
   position: relative;
   background: #fdfbf7;
-  padding: 9px 9px 32px 9px;
+  padding: 8px 8px 30px 8px;
   border-radius: 4px;
   box-shadow: 
     0 14px 28px rgba(0, 0, 0, 0.48),
     0 8px 10px rgba(0, 0, 0, 0.32);
-  transform: rotate(-6deg);
+  --polaroid-rot: -8.8deg;
+  transform: rotate(var(--polaroid-rot));
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
-  width: 190px;
+  width: 185px;
+  cursor: pointer;
 }
 
 @media (min-width: 640px) {
   .polaroid-frame {
-    width: 210px;
-    padding: 10px 10px 36px 10px;
+    width: 200px;
+    padding: 9px 9px 34px 9px;
   }
 }
 
 .polaroid-frame:hover {
-  transform: rotate(-2deg) scale(1.03);
+  transform: rotate(-5deg) translateY(-2px) scale(1.02);
   box-shadow: 
-    0 20px 35px rgba(0, 0, 0, 0.55),
-    0 12px 15px rgba(0, 0, 0, 0.4);
+    0 20px 36px rgba(0, 0, 0, 0.58),
+    0 12px 14px rgba(0, 0, 0, 0.4);
+}
+
+.polaroid-frame.clicked {
+  animation: polaroidSpring 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes polaroidSpring {
+  0% { transform: rotate(var(--polaroid-rot, -8.8deg)) scale(1); }
+  25% { transform: rotate(calc(var(--polaroid-rot, -8.8deg) + 7deg)) translateY(-4px) scale(1.04); }
+  50% { transform: rotate(calc(var(--polaroid-rot, -8.8deg) - 4deg)) translateY(2px) scale(0.98); }
+  75% { transform: rotate(calc(var(--polaroid-rot, -8.8deg) + 2deg)) scale(1.01); }
+  100% { transform: rotate(var(--polaroid-rot, -8.8deg)) scale(1); }
 }
 
 .polaroid-frame .pushpin {
@@ -398,7 +412,7 @@ body {
 
 .polaroid-img {
   width: 100%;
-  height: 180px;
+  height: 175px;
   object-fit: cover;
   object-position: center 15%;
   border-radius: 2px;
@@ -408,7 +422,7 @@ body {
 
 @media (min-width: 640px) {
   .polaroid-img {
-    height: 195px;
+    height: 190px;
   }
 }
 
@@ -420,50 +434,65 @@ body {
   transform: rotate(10deg);
 }
 
-/* ---------- Yellow Sticky Note Bio Card (Arjun Exact Darker Yellow & Tilt) ---------- */
+/* ---------- Authentic Loose Yellow Sticky Note (No Box Border, Paper Curl, Tilt) ---------- */
 .yellow-note-card {
-  background-color: #FEE388;
+  background-color: #FEE488;
   background-image: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
     radial-gradient(#F5D366 0.75px, transparent 0.75px);
   background-size: 100% 100%, 16px 16px;
   color: #3b2a1a;
-  border-radius: 12px;
-  padding: 1.5rem 1.75rem;
+  border-radius: 4px 4px 6px 6px;
+  padding: 1.25rem 1.5rem;
+  /* Asymmetric shadow: paper stuck at top, bottom-right lifting */
   box-shadow: 
-    0 16px 36px -4px rgba(0, 0, 0, 0.52),
-    0 6px 14px rgba(0,0,0,0.28);
+    2px 12px 28px -3px rgba(0, 0, 0, 0.48),
+    0 2px 6px rgba(0, 0, 0, 0.22);
   position: relative;
-  border: 1px solid rgba(217, 130, 6, 0.28);
-  --card-rot: 0.5deg;
-  transform: rotate(var(--card-rot));
+  border: none;
+  --note-rot: 1.2deg;
+  transform: rotate(var(--note-rot));
   cursor: pointer;
-  transition: box-shadow 0.2s ease;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease;
 }
 
+/* Adhesive strip indicator along the top edge */
+.yellow-note-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.04), transparent);
+  border-radius: 4px 4px 0 0;
+  pointer-events: none;
+}
+
+/* Soft paper lift on hover */
 .yellow-note-card:hover {
+  transform: rotate(calc(var(--note-rot, 1.2deg) - 0.6deg)) translateY(-4px);
   box-shadow: 
-    0 20px 42px -4px rgba(0, 0, 0, 0.6),
-    0 8px 18px rgba(0,0,0,0.32);
+    4px 18px 34px -4px rgba(0, 0, 0, 0.58),
+    0 4px 10px rgba(0, 0, 0, 0.28);
 }
 
-/* Sticky Note Wobble / Vibration on Click */
-.sticky-wobble {
-  animation: stickyWobble 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+/* Sticky Note Peel & Snap on Click */
+.yellow-note-card.sticky-peel {
+  animation: stickyPeel 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
-@keyframes stickyWobble {
-  0% { transform: rotate(var(--card-rot, 0deg)) scale(1); }
-  20% { transform: rotate(calc(var(--card-rot, 0deg) - 2.8deg)) scale(0.98); }
-  40% { transform: rotate(calc(var(--card-rot, 0deg) + 2.2deg)) scale(1.02); }
-  60% { transform: rotate(calc(var(--card-rot, 0deg) - 1.4deg)) scale(0.99); }
-  80% { transform: rotate(calc(var(--card-rot, 0deg) + 0.8deg)) scale(1.01); }
-  100% { transform: rotate(var(--card-rot, 0deg)) scale(1); }
+@keyframes stickyPeel {
+  0% { transform: rotate(var(--note-rot, 1.2deg)) scale(1); }
+  22% { transform: rotate(calc(var(--note-rot, 1.2deg) + 3.5deg)) translateY(-9px) scale(1.02); }
+  45% { transform: rotate(calc(var(--note-rot, 1.2deg) - 2.5deg)) translateY(-3px) scale(0.99); }
+  72% { transform: rotate(calc(var(--note-rot, 1.2deg) + 1.2deg)) translateY(-1px) scale(1.01); }
+  100% { transform: rotate(var(--note-rot, 1.2deg)) scale(1); }
 }
 
 @media (min-width: 640px) {
   .yellow-note-card {
-    padding: 2rem 2.25rem;
+    padding: 1.5rem 1.85rem;
   }
 }
 
