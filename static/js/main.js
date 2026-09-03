@@ -138,11 +138,18 @@
 
   const yellowNoteEl = document.querySelector('.yellow-note-card');
   if (yellowNoteEl) {
-    yellowNoteEl.addEventListener('click', function (e) {
+    const triggerPaperWobble = function (e) {
+      // If user clicked/tapped a link or button, don't interfere
       if (e.target.closest('a, button, [role="button"]')) return;
-      yellowNoteEl.classList.remove('sticky-peel');
-      void yellowNoteEl.offsetWidth; // trigger reflow
-      yellowNoteEl.classList.add('sticky-peel');
+
+      yellowNoteEl.classList.remove('paper-wobble');
+      void yellowNoteEl.offsetWidth; // trigger reflow for restartable animation
+      yellowNoteEl.classList.add('paper-wobble');
+    };
+
+    yellowNoteEl.addEventListener('click', triggerPaperWobble);
+    yellowNoteEl.addEventListener('animationend', function () {
+      yellowNoteEl.classList.remove('paper-wobble');
     });
   }
 

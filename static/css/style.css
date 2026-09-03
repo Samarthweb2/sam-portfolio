@@ -434,60 +434,81 @@ body {
   transform: rotate(10deg);
 }
 
-/* ---------- Authentic Loose Yellow Sticky Note (No Box Border, Paper Curl, Tilt) ---------- */
+/* ---------- Pinned Pale-Yellow Sticky Note (Pale Texture, Uneven Edges, Soft Chalk Shadow) ---------- */
 .yellow-note-card {
-  background-color: #FEE488;
+  background-color: #FFF8BD;
   background-image: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
-    radial-gradient(#F5D366 0.75px, transparent 0.75px);
-  background-size: 100% 100%, 16px 16px;
-  color: #3b2a1a;
-  border-radius: 4px 4px 6px 6px;
+    radial-gradient(#F3E98E 0.8px, transparent 0.8px),
+    linear-gradient(176deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 248, 189, 0.1) 35%, rgba(243, 222, 110, 0.12) 100%);
+  background-size: 14px 14px, 100% 100%;
+  color: #382717;
+  /* Subtle uneven organic paper edges */
+  border-radius: 2px 3px 5px 2px;
   padding: 1.25rem 1.5rem;
-  /* Asymmetric shadow: paper stuck at top, bottom-right lifting */
+  /* Soft, layered chalkboard shadow */
   box-shadow: 
-    2px 12px 28px -3px rgba(0, 0, 0, 0.48),
-    0 2px 6px rgba(0, 0, 0, 0.22);
+    2px 10px 24px -3px rgba(0, 0, 0, 0.46),
+    0 3px 8px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
   position: relative;
   border: none;
-  --note-rot: 1.2deg;
-  transform: rotate(var(--note-rot));
+  --note-base-rot: 1.1deg;
+  transform: rotate(var(--note-base-rot));
+  transform-origin: 50% 10%; /* Pivots naturally from the top-pinned area */
   cursor: pointer;
-  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: box-shadow 0.25s ease;
 }
 
-/* Adhesive strip indicator along the top edge */
+/* Subtle translucent adhesive band indicator along top edge */
 .yellow-note-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 16px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.04), transparent);
-  border-radius: 4px 4px 0 0;
+  height: 14px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.03), transparent);
+  border-radius: 2px 3px 0 0;
   pointer-events: none;
 }
 
-/* Soft paper lift on hover */
-.yellow-note-card:hover {
-  transform: rotate(calc(var(--note-rot, 1.2deg) - 0.6deg)) translateY(-4px);
-  box-shadow: 
-    4px 18px 34px -4px rgba(0, 0, 0, 0.58),
-    0 4px 10px rgba(0, 0, 0, 0.28);
+/* Playful Paper Wobble Animation (CSS Transform Only - Never Moves Layout) */
+.yellow-note-card.paper-wobble {
+  animation: paperWobble 0.48s cubic-bezier(0.25, 1, 0.5, 1) both;
 }
 
-/* Sticky Note Peel & Snap on Click */
-.yellow-note-card.sticky-peel {
-  animation: stickyPeel 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+@keyframes paperWobble {
+  0% {
+    transform: rotate(var(--note-base-rot)) translate3d(0, 0, 0);
+    box-shadow: 2px 10px 24px -3px rgba(0, 0, 0, 0.46), 0 3px 8px rgba(0, 0, 0, 0.22);
+  }
+  22% {
+    transform: rotate(calc(var(--note-base-rot) - 2.8deg)) translate3d(0, -5px, 0) scale(1.012);
+    box-shadow: 4px 16px 30px -3px rgba(0, 0, 0, 0.55), 0 5px 12px rgba(0, 0, 0, 0.28);
+  }
+  45% {
+    transform: rotate(calc(var(--note-base-rot) + 2.2deg)) translate3d(0, 1.5px, 0) scale(0.995);
+    box-shadow: 1px 8px 18px -2px rgba(0, 0, 0, 0.42), 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  68% {
+    transform: rotate(calc(var(--note-base-rot) - 1.1deg)) translate3d(0, -1.5px, 0) scale(1.004);
+    box-shadow: 3px 12px 24px -3px rgba(0, 0, 0, 0.48), 0 3px 8px rgba(0, 0, 0, 0.23);
+  }
+  86% {
+    transform: rotate(calc(var(--note-base-rot) + 0.4deg)) translate3d(0, 0.5px, 0) scale(1);
+  }
+  100% {
+    transform: rotate(var(--note-base-rot)) translate3d(0, 0, 0);
+    box-shadow: 2px 10px 24px -3px rgba(0, 0, 0, 0.46), 0 3px 8px rgba(0, 0, 0, 0.22);
+  }
 }
 
-@keyframes stickyPeel {
-  0% { transform: rotate(var(--note-rot, 1.2deg)) scale(1); }
-  22% { transform: rotate(calc(var(--note-rot, 1.2deg) + 3.5deg)) translateY(-9px) scale(1.02); }
-  45% { transform: rotate(calc(var(--note-rot, 1.2deg) - 2.5deg)) translateY(-3px) scale(0.99); }
-  72% { transform: rotate(calc(var(--note-rot, 1.2deg) + 1.2deg)) translateY(-1px) scale(1.01); }
-  100% { transform: rotate(var(--note-rot, 1.2deg)) scale(1); }
+@media (min-width: 640px) {
+  .yellow-note-card {
+    padding: 1.5rem 1.85rem;
+  }
 }
 
 @media (min-width: 640px) {
