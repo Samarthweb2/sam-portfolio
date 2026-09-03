@@ -434,26 +434,22 @@ body {
   transform: rotate(10deg);
 }
 
-/* ---------- Pinned Pale-Yellow Sticky Note (Pale Texture, Uneven Edges, Soft Chalk Shadow) ---------- */
+/* ---------- Pinned Pale-Yellow Sticky Note (Pale Texture, Uneven Edges, Broad Shadow) ---------- */
 .yellow-note-card {
   position: relative;
   z-index: 20;
   background-color: #FFF8BD;
-  background-image: 
-    radial-gradient(#F3E98E 0.8px, transparent 0.8px),
-    linear-gradient(176deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 248, 189, 0.12) 35%, rgba(243, 222, 110, 0.15) 100%);
-  background-size: 14px 14px, 100% 100%;
-  color: #382717;
-  /* Subtle uneven organic paper edges */
-  border-radius: 2px 3px 5px 2px;
+  color: #1C1917;
+  /* Subtle imperfect paper corners */
+  border-radius: 2px 4px 5px 3px;
   padding: 1.25rem 1.5rem;
-  /* Soft, layered chalkboard shadow */
+  /* Broad soft dark shadow providing clear contrast against chalkboard */
   box-shadow: 
-    2px 10px 24px -3px rgba(0, 0, 0, 0.46),
-    0 3px 8px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    0 16px 36px -4px rgba(0, 0, 0, 0.55),
+    0 6px 14px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
   border: none;
-  --note-base-rot: 1.2deg;
+  --note-base-rot: 1deg;
   transform: rotate(var(--note-base-rot));
   transform-origin: 50% 10% !important; /* Pinned at top edge */
   cursor: default;
@@ -463,55 +459,69 @@ body {
   transition: box-shadow 0.25s ease;
 }
 
+/* Pseudo-element 1: Gentle top-to-bottom light gradient across the note */
+.yellow-note-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    178deg,
+    rgba(255, 255, 255, 0.52) 0%,
+    rgba(255, 248, 189, 0.15) 35%,
+    rgba(238, 218, 105, 0.14) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Pseudo-element 2: Subtle paper grain / fiber texture using CSS radial gradient */
+.yellow-note-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(180, 160, 60, 0.2) 0.65px, transparent 0.65px);
+  background-size: 10px 10px;
+  opacity: 0.4;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
 .yellow-note-card:focus-visible {
   outline: 2px dashed rgba(227, 83, 66, 0.7);
   outline-offset: 4px;
 }
 
-/* Subtle translucent adhesive band indicator along top edge */
-.yellow-note-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 14px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.035), transparent);
-  border-radius: 2px 3px 0 0;
-  pointer-events: none;
-}
-
-/* Note Wobble Animation on Click / Tap (CSS Transform Only - Never Moves Layout) */
+/* Note Wobble Animation (CSS Transform Only - Never Moves Layout) */
 .yellow-note-card.note-wobble {
   animation: noteWobble 0.52s cubic-bezier(0.25, 1.2, 0.5, 1) both !important;
 }
 
 @keyframes noteWobble {
   0% {
-    transform: rotate(var(--note-base-rot, 1.2deg)) translate3d(0, 0, 0) scale(1);
-    box-shadow: 2px 10px 24px -3px rgba(0, 0, 0, 0.46), 0 3px 8px rgba(0, 0, 0, 0.22);
+    transform: rotate(var(--note-base-rot, 1deg)) translate3d(0, 0, 0) scale(1);
+    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.55), 0 6px 14px rgba(0, 0, 0, 0.3);
   }
   18% {
-    transform: rotate(calc(var(--note-base-rot, 1.2deg) - 4.8deg)) translate3d(0, -8px, 0) scale(1.02);
-    box-shadow: 5px 20px 32px -2px rgba(0, 0, 0, 0.6), 0 6px 14px rgba(0, 0, 0, 0.3);
+    transform: rotate(calc(var(--note-base-rot, 1deg) - 4.8deg)) translate3d(0, -8px, 0) scale(1.02);
+    box-shadow: 0 24px 44px -4px rgba(0, 0, 0, 0.65), 0 8px 18px rgba(0, 0, 0, 0.38);
   }
   38% {
-    transform: rotate(calc(var(--note-base-rot, 1.2deg) + 3.8deg)) translate3d(0, 3px, 0) scale(0.99);
-    box-shadow: 1px 7px 16px -2px rgba(0, 0, 0, 0.38), 0 2px 6px rgba(0, 0, 0, 0.18);
+    transform: rotate(calc(var(--note-base-rot, 1deg) + 3.8deg)) translate3d(0, 3px, 0) scale(0.99);
+    box-shadow: 0 12px 26px -3px rgba(0, 0, 0, 0.48), 0 4px 10px rgba(0, 0, 0, 0.25);
   }
   58% {
-    transform: rotate(calc(var(--note-base-rot, 1.2deg) - 2.2deg)) translate3d(0, -3px, 0) scale(1.008);
-    box-shadow: 4px 14px 26px -3px rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.24);
+    transform: rotate(calc(var(--note-base-rot, 1deg) - 2.2deg)) translate3d(0, -3px, 0) scale(1.008);
+    box-shadow: 0 18px 34px -4px rgba(0, 0, 0, 0.58), 0 6px 14px rgba(0, 0, 0, 0.32);
   }
   78% {
-    transform: rotate(calc(var(--note-base-rot, 1.2deg) + 1.0deg)) translate3d(0, 1px, 0) scale(0.998);
+    transform: rotate(calc(var(--note-base-rot, 1deg) + 1.0deg)) translate3d(0, 1px, 0) scale(0.998);
   }
   90% {
-    transform: rotate(calc(var(--note-base-rot, 1.2deg) - 0.4deg)) translate3d(0, 0, 0) scale(1);
+    transform: rotate(calc(var(--note-base-rot, 1deg) - 0.4deg)) translate3d(0, 0, 0) scale(1);
   }
   100% {
-    transform: rotate(var(--note-base-rot, 1.2deg)) translate3d(0, 0, 0) scale(1);
-    box-shadow: 2px 10px 24px -3px rgba(0, 0, 0, 0.46), 0 3px 8px rgba(0, 0, 0, 0.22);
+    transform: rotate(var(--note-base-rot, 1deg)) translate3d(0, 0, 0) scale(1);
+    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.55), 0 6px 14px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -528,7 +538,9 @@ body {
   margin-bottom: 0.95rem;
   font-size: 0.93rem;
   line-height: 1.6;
-  color: #452c1e;
+  color: #1C1917; /* Dark ink text */
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 640px) {
@@ -554,29 +566,38 @@ body {
 }
 
 .yellow-note-card .highlight {
-  color: #C0392B;
+  color: #E35342;
   font-weight: 600;
-  text-decoration: underline wavy rgba(192, 57, 43, 0.38);
+  text-decoration: underline wavy rgba(227, 83, 66, 0.42);
   text-underline-offset: 2.5px;
 }
 
 .yellow-note-card .highlight-subtle {
   font-weight: 600;
-  color: #291a11;
+  color: #1C1917;
 }
 
-/* ---------- GitHub Activity Card (Arjun Style) ---------- */
+/* ---------- GitHub Activity Card (Ivory Contribution Paper Sheet) ---------- */
 .github-card {
-  background: #FAF6F0;
-  color: #1c1917;
-  border-radius: 18px;
+  background: #F8F5EF;
+  color: #1C1917;
+  border: 1px solid rgba(214, 211, 209, 0.85);
+  border-radius: 12px;
   padding: 1.25rem 1.5rem;
   box-shadow: 
-    0 16px 36px -6px rgba(0, 0, 0, 0.55),
-    0 6px 12px rgba(0, 0, 0, 0.2);
+    0 16px 36px -4px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.22);
   position: relative;
-  max-width: 720px;
-  margin: 0 auto;
+  width: 100%;
+  --gh-rot: -0.6deg;
+  transform: rotate(var(--gh-rot));
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .github-card {
+    padding: 1.35rem 1.75rem;
+  }
 }
 
 @media (min-width: 640px) {

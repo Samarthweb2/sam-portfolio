@@ -121,7 +121,16 @@
         }
       })
       .catch(err => {
-        console.warn('Live GitHub fetch failed, rendering fallback:', err);
+        console.warn('Live GitHub fetch failed:', err);
+        // If heatmap has no cells rendered, display clean fallback message
+        if (heatmapContainer && !heatmapContainer.querySelector('.gh-cell')) {
+          heatmapContainer.innerHTML = `
+            <div class="py-6 px-4 text-center text-xs text-stone-500 font-sans w-full">
+              Live GitHub activity currently unavailable. View recent activity directly on
+              <a href="https://github.com/SamarthWeb2" target="_blank" rel="noopener noreferrer" class="text-[#E35342] underline font-medium hover:opacity-80">GitHub (@SamarthWeb2)</a>.
+            </div>
+          `;
+        }
       });
   }
 
