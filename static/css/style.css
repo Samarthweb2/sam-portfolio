@@ -17,6 +17,25 @@
   --color-chalk-orange: #E35342;
   --color-chalk-yellow: #F2C94C;
   --content-max-canvas: 760px;
+
+  /* Dedicated Yellow Sticky Note Tokens (Warm Cartoonish Old Paper) */
+  --color-note-yellow: #fff3ad;
+  --color-note-yellow-light: #fff9cf;
+  --color-note-yellow-edge: #e7c95f;
+  --color-note-ink: #342b20;
+
+  /* GitHub Activity Parchment Card Tokens */
+  --color-gh-paper: #f7efe6;
+  --color-gh-ink: #1c1917;
+  --color-gh-muted: #57534e;
+  --color-gh-border: #ded2c5;
+
+  /* Contribution Heatmap Green Scale */
+  --color-gh-0: #e0ebe4;
+  --color-gh-1: #8ae1af;
+  --color-gh-2: #45bf82;
+  --color-gh-3: #00925a;
+  --color-gh-4: #005d36;
 }
 
 /* ---------- Base Reset & Body ---------- */
@@ -434,21 +453,19 @@ body {
   transform: rotate(10deg);
 }
 
-/* ---------- Pinned Pale-Yellow Sticky Note (Pale Texture, Uneven Edges, Broad Shadow) ---------- */
+/* ---------- Pinned Warm Cartoonish Yellow Sticky Note (#yellow-sticky-note) ---------- */
+#yellow-sticky-note,
 .yellow-note-card {
   position: relative;
   z-index: 20;
-  background-color: #FFF8BD;
-  color: #1C1917;
-  /* Subtle imperfect paper corners */
-  border-radius: 2px 4px 5px 3px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.42), transparent 42%),
+    linear-gradient(180deg, var(--color-note-yellow-light), var(--color-note-yellow));
+  color: var(--color-note-ink);
+  border: 1px solid rgba(145, 108, 22, .20);
+  border-radius: 4px 5px 6px 3px;
   padding: 1.25rem 1.5rem;
-  /* Broad soft dark shadow providing clear contrast against chalkboard */
-  box-shadow: 
-    0 16px 36px -4px rgba(0, 0, 0, 0.55),
-    0 6px 14px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
-  border: none;
+  box-shadow: 3px 10px 24px rgba(0,0,0,.42), 0 2px 5px rgba(0,0,0,.18);
   --note-base-rot: 1deg;
   transform: rotate(var(--note-base-rot));
   transform-origin: 50% 10% !important; /* Pinned at top edge */
@@ -459,39 +476,14 @@ body {
   transition: box-shadow 0.25s ease;
 }
 
-/* Pseudo-element 1: Gentle top-to-bottom light gradient across the note */
-.yellow-note-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    178deg,
-    rgba(255, 255, 255, 0.52) 0%,
-    rgba(255, 248, 189, 0.15) 35%,
-    rgba(238, 218, 105, 0.14) 100%
-  );
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-/* Pseudo-element 2: Subtle paper grain / fiber texture using CSS radial gradient */
-.yellow-note-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(180, 160, 60, 0.2) 0.65px, transparent 0.65px);
-  background-size: 10px 10px;
-  opacity: 0.4;
-  border-radius: inherit;
-  pointer-events: none;
-}
-
+#yellow-sticky-note:focus-visible,
 .yellow-note-card:focus-visible {
   outline: 2px dashed rgba(227, 83, 66, 0.7);
   outline-offset: 4px;
 }
 
-/* Note Wobble Animation (CSS Transform Only - Never Moves Layout) */
+/* Note Wobble Animation (CSS Transform Only - Preserves Base Rotation and Rest Position) */
+#yellow-sticky-note.note-wobble,
 .yellow-note-card.note-wobble {
   animation: noteWobble 0.52s cubic-bezier(0.25, 1.2, 0.5, 1) both !important;
 }
@@ -499,19 +491,19 @@ body {
 @keyframes noteWobble {
   0% {
     transform: rotate(var(--note-base-rot, 1deg)) translate3d(0, 0, 0) scale(1);
-    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.55), 0 6px 14px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 10px 24px rgba(0,0,0,.42), 0 2px 5px rgba(0,0,0,.18);
   }
   18% {
     transform: rotate(calc(var(--note-base-rot, 1deg) - 4.8deg)) translate3d(0, -8px, 0) scale(1.02);
-    box-shadow: 0 24px 44px -4px rgba(0, 0, 0, 0.65), 0 8px 18px rgba(0, 0, 0, 0.38);
+    box-shadow: 4px 16px 30px rgba(0,0,0,.52), 0 4px 10px rgba(0,0,0,.26);
   }
   38% {
     transform: rotate(calc(var(--note-base-rot, 1deg) + 3.8deg)) translate3d(0, 3px, 0) scale(0.99);
-    box-shadow: 0 12px 26px -3px rgba(0, 0, 0, 0.48), 0 4px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 2px 8px 18px rgba(0,0,0,.35), 0 2px 4px rgba(0,0,0,.15);
   }
   58% {
     transform: rotate(calc(var(--note-base-rot, 1deg) - 2.2deg)) translate3d(0, -3px, 0) scale(1.008);
-    box-shadow: 0 18px 34px -4px rgba(0, 0, 0, 0.58), 0 6px 14px rgba(0, 0, 0, 0.32);
+    box-shadow: 3px 12px 22px rgba(0,0,0,.42), 0 3px 7px rgba(0,0,0,.2);
   }
   78% {
     transform: rotate(calc(var(--note-base-rot, 1deg) + 1.0deg)) translate3d(0, 1px, 0) scale(0.998);
@@ -521,11 +513,12 @@ body {
   }
   100% {
     transform: rotate(var(--note-base-rot, 1deg)) translate3d(0, 0, 0) scale(1);
-    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.55), 0 6px 14px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 10px 24px rgba(0,0,0,.42), 0 2px 5px rgba(0,0,0,.18);
   }
 }
 
 @media (min-width: 640px) {
+  #yellow-sticky-note,
   .yellow-note-card {
     padding: 1.5rem 1.85rem;
   }
@@ -538,7 +531,7 @@ body {
   margin-bottom: 0.95rem;
   font-size: 0.93rem;
   line-height: 1.6;
-  color: #1C1917; /* Dark ink text */
+  color: var(--color-note-ink);
   position: relative;
   z-index: 1;
 }
@@ -559,14 +552,14 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #E35342;
+  background: var(--color-accent);
   margin-top: 0.55rem;
   flex-shrink: 0;
   box-shadow: 0 1px 3px rgba(227, 83, 66, 0.4);
 }
 
 .yellow-note-card .highlight {
-  color: #E35342;
+  color: var(--color-accent);
   font-weight: 600;
   text-decoration: underline wavy rgba(227, 83, 66, 0.42);
   text-underline-offset: 2.5px;
@@ -574,30 +567,26 @@ body {
 
 .yellow-note-card .highlight-subtle {
   font-weight: 600;
-  color: #1C1917;
+  color: var(--color-note-ink);
 }
 
-/* ---------- GitHub Activity Card (Ivory Contribution Paper Sheet) ---------- */
+/* ---------- GitHub Activity Card (Off-white Parchment / Paper Card) ---------- */
 .github-card {
-  background: #F8F5EF;
-  color: #1C1917;
-  border: 1px solid rgba(214, 211, 209, 0.85);
+  background: linear-gradient(145deg, #fffaf2, var(--color-gh-paper));
+  color: var(--color-gh-ink);
+  border: 1px solid var(--color-gh-border);
+  box-shadow: 3px 7px 18px rgba(0,0,0,.30);
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
-  box-shadow: 
-    0 16px 36px -4px rgba(0, 0, 0, 0.5),
-    0 4px 12px rgba(0, 0, 0, 0.22);
   position: relative;
   width: 100%;
-  --gh-rot: -0.6deg;
-  transform: rotate(var(--gh-rot));
+  transform: rotate(-0.6deg);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-@media (min-width: 640px) {
-  .github-card {
-    padding: 1.35rem 1.75rem;
-  }
+.github-card .text-muted,
+.github-card .text-stone-500 {
+  color: var(--color-gh-muted);
 }
 
 @media (min-width: 640px) {
@@ -661,11 +650,11 @@ body {
   transform: scale(1.3);
 }
 
-.gh-l0 { background-color: #ebedf0; }
-.gh-l1 { background-color: #9be9a8; }
-.gh-l2 { background-color: #40c463; }
-.gh-l3 { background-color: #30a14e; }
-.gh-l4 { background-color: #216e39; }
+.gh-l0 { background-color: var(--color-gh-0); }
+.gh-l1 { background-color: var(--color-gh-1); }
+.gh-l2 { background-color: var(--color-gh-2); }
+.gh-l3 { background-color: var(--color-gh-3); }
+.gh-l4 { background-color: var(--color-gh-4); }
 
 /* ---------- Section Cards ---------- */
 .chalk-card {
