@@ -338,7 +338,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* ---------- Polaroid Photo Card with Pushpin ---------- */
+/* ---------- Polaroid Photo Card with Pushpin (Arjun Exact Dimensions) ---------- */
 .polaroid-wrapper {
   position: relative;
   display: inline-block;
@@ -348,20 +348,20 @@ body {
 .polaroid-frame {
   position: relative;
   background: #fdfbf7;
-  padding: 10px 10px 34px 10px;
+  padding: 9px 9px 32px 9px;
   border-radius: 4px;
   box-shadow: 
-    0 14px 28px rgba(0, 0, 0, 0.45),
-    0 10px 10px rgba(0, 0, 0, 0.35);
+    0 14px 28px rgba(0, 0, 0, 0.48),
+    0 8px 10px rgba(0, 0, 0, 0.32);
   transform: rotate(-6deg);
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
-  width: 200px;
+  width: 190px;
 }
 
 @media (min-width: 640px) {
   .polaroid-frame {
-    width: 225px;
-    padding: 12px 12px 40px 12px;
+    width: 210px;
+    padding: 10px 10px 36px 10px;
   }
 }
 
@@ -398,17 +398,17 @@ body {
 
 .polaroid-img {
   width: 100%;
-  height: 235px;
+  height: 180px;
   object-fit: cover;
-  object-position: center 22%;
+  object-position: center 15%;
   border-radius: 2px;
-  filter: contrast(1.03) saturate(1.02);
+  filter: contrast(1.04) saturate(1.02);
   display: block;
 }
 
 @media (min-width: 640px) {
   .polaroid-img {
-    height: 270px;
+    height: 195px;
   }
 }
 
@@ -420,19 +420,45 @@ body {
   transform: rotate(10deg);
 }
 
-/* ---------- Yellow Sticky Note Bio Card ---------- */
+/* ---------- Yellow Sticky Note Bio Card (Arjun Exact Darker Yellow & Tilt) ---------- */
 .yellow-note-card {
-  background-color: #FEF3C7;
-  background-image: radial-gradient(#FDE68A 0.75px, transparent 0.75px);
-  background-size: 16px 16px;
+  background-color: #FEE388;
+  background-image: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%),
+    radial-gradient(#F5D366 0.75px, transparent 0.75px);
+  background-size: 100% 100%, 16px 16px;
   color: #3b2a1a;
   border-radius: 12px;
   padding: 1.5rem 1.75rem;
   box-shadow: 
-    0 15px 35px -5px rgba(0, 0, 0, 0.45),
-    0 6px 12px rgba(0,0,0,0.25);
+    0 16px 36px -4px rgba(0, 0, 0, 0.52),
+    0 6px 14px rgba(0,0,0,0.28);
   position: relative;
-  border: 1px solid rgba(217, 119, 6, 0.22);
+  border: 1px solid rgba(217, 130, 6, 0.28);
+  --card-rot: 0.5deg;
+  transform: rotate(var(--card-rot));
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.yellow-note-card:hover {
+  box-shadow: 
+    0 20px 42px -4px rgba(0, 0, 0, 0.6),
+    0 8px 18px rgba(0,0,0,0.32);
+}
+
+/* Sticky Note Wobble / Vibration on Click */
+.sticky-wobble {
+  animation: stickyWobble 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes stickyWobble {
+  0% { transform: rotate(var(--card-rot, 0deg)) scale(1); }
+  20% { transform: rotate(calc(var(--card-rot, 0deg) - 2.8deg)) scale(0.98); }
+  40% { transform: rotate(calc(var(--card-rot, 0deg) + 2.2deg)) scale(1.02); }
+  60% { transform: rotate(calc(var(--card-rot, 0deg) - 1.4deg)) scale(0.99); }
+  80% { transform: rotate(calc(var(--card-rot, 0deg) + 0.8deg)) scale(1.01); }
+  100% { transform: rotate(var(--card-rot, 0deg)) scale(1); }
 }
 
 @media (min-width: 640px) {
@@ -651,27 +677,32 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* ---------- Social Links ---------- */
+/* ---------- Social Links (Arjun Style: White Discs with Coral Red Icons) ---------- */
 .social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  color: var(--color-on-mat);
-  opacity: 0.7;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  color: #E35342;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .social-link {
+    width: 38px;
+    height: 38px;
+  }
 }
 
 .social-link:hover {
-  opacity: 1;
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(227, 83, 66, 0.2);
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(227, 83, 66, 0.35);
+  color: #C0392B;
 }
 
 /* ---------- Tech Badge ---------- */

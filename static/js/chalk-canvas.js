@@ -1,7 +1,7 @@
 /**
  * Chalk Drawing Canvas & Red Pen Annotations
- * Allows visitors to click & draw/annotate anywhere on the chalkboard with red pen/chalk by default.
- * Features: Red pen/chalk default, 3 chalk colors, eraser mode, wipe-all (double-click duster).
+ * Allows visitors to activate chalk drawing mode from the shelf.
+ * When not active, user has normal cursor. When chalk is selected, cursor switches to chalk crosshair.
  */
 
 (function () {
@@ -9,12 +9,12 @@
 
   // ─── State ───
   let isDrawing = false;
-  let currentColor = '#E35342'; // Default: Signature Orange/Red Chalk/Pen
+  let currentColor = '#E35342'; // Signature Red Chalk/Pen
   let brushSize = 2.5;
   let isEraser = false;
   let lastX = 0;
   let lastY = 0;
-  let canvasActive = true;
+  let canvasActive = false; // Inactive by default so normal cursor is preserved
 
   // ─── DOM ───
   const canvas = document.getElementById('chalk-canvas');
@@ -31,7 +31,6 @@
       window.innerHeight
     );
 
-    // Save current drawing if canvas had size
     let tempCanvas;
     if (canvas.width > 0 && canvas.height > 0) {
       tempCanvas = document.createElement('canvas');
@@ -114,14 +113,15 @@
     };
   }
 
-  // ─── Global Pointer Events (Draw on click & drag anywhere) ───
+  // ─── Drawing Events (Active when chalk or eraser is chosen) ───
   window.addEventListener('pointerdown', function (e) {
-    // Ignore interactive UI elements like links, buttons, inputs, shelf
+    if (!canvasActive) return;
+
+    // Don't draw when clicking links, buttons, inputs, chalk-tray
     if (e.target.closest('a, button, input, select, textarea, .chalk-tray, [role="button"]')) {
       return;
     }
 
-    if (!canvasActive) return;
     isDrawing = true;
     const pos = getPos(e);
     lastX = pos.x;
@@ -142,63 +142,94 @@
 
   // ─── Chalk Shelf Selection ───
   const chalkButtons = document.querySelectorAll('[data-chalk-color]');
+  const dusterBtn = document.getElementById('duster-btn');
+
   chalkButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
+      const color = btn.dataset.chalkColor;
+
+      // If already active with this color, toggle OFF
+      if (canvasActive && !isEraser && currentColor === color) {
+        canvasActive = false;
+        canvas.classList.remove('active', 'eraser-mode');
+        btn.classList.remove('selected');
+        hideBubble();
+        return;
+      }
+
+      // Activate drawing mode with chosen color
       isEraser = false;
-      currentColor = btn.dataset.chalkColor;
+      currentColor = color;
       brushSize = 2.5;
       canvasActive = true;
+      canvas.classList.add('active');
+      canvas.classList.remove('eraser-mode');
 
-      // Highlight active chalk
       chalkButtons.forEach(function (b) { b.classList.remove('selected'); });
+      dusterBtn?.classList.remove('selected');
       btn.classList.add('selected');
-      document.getElementById('duster-btn')?.classList.remove('selected');
 
-      showBubble();
+      const colorName = color === '#E35342' ? 'Red' : color === '#F2C94C' ? 'Yellow' : 'White';
+      showBubble(`${colorName} chalk active! Click & drag anywhere to annotate :)`);
     });
   });
 
-  // Set default selected button (orange/red chalk)
-  const defaultRedBtn = document.querySelector('[data-chalk-color="#E35342"]');
-  if (defaultRedBtn) {
-    chalkButtons.forEach(function (b) { b.classList.remove('selected'); });
-    defaultRedBtn.classList.add('selected');
-  }
-
   // ─── Duster / Eraser ───
-  const dusterBtn = document.getElementById('duster-btn');
   if (dusterBtn) {
     dusterBtn.addEventListener('click', function () {
+      if (canvasActive && isEraser) {
+        // Toggle off
+        canvasActive = false;
+        isEraser = false;
+        canvas.classList.remove('active', 'eraser-mode');
+        dusterBtn.classList.remove('selected');
+        hideBubble();
+        return;
+      }
+
       isEraser = true;
+      canvasActive = true;
+      canvas.classList.add('active', 'eraser-mode');
+
       chalkButtons.forEach(function (b) { b.classList.remove('selected'); });
       dusterBtn.classList.add('selected');
+      showBubble('Eraser active! Click & drag to erase chalk lines.');
     });
 
     dusterBtn.addEventListener('dblclick', function () {
-      // Wipe everything
+      // Wipe all
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       isEraser = false;
-      // Re-select red chalk
+      canvasActive = false;
+      canvas.classList.remove('active', 'eraser-mode');
       chalkButtons.forEach(function (b) { b.classList.remove('selected'); });
-      if (defaultRedBtn) defaultRedBtn.classList.add('selected');
       dusterBtn.classList.remove('selected');
-      currentColor = '#E35342';
+      showBubble('Board wiped clean!');
+      setTimeout(hideBubble, 1800);
     });
   }
 
   // ─── Bubble Message ───
-  let bubbleShown = false;
-  function showBubble() {
-    if (bubbleShown) return;
-    bubbleShown = true;
+  let bubbleTimer = null;
+  function showBubble(msg) {
+    const bubble = document.getElementById('chalk-bubble');
+    if (!bubble) return;
+    const textEl = bubble.querySelector('.chalk-bubble');
+    if (textEl && msg) {
+      textEl.textContent = msg;
+    }
+    bubble.style.opacity = '1';
+    bubble.style.transform = 'translateY(0)';
+
+    clearTimeout(bubbleTimer);
+    bubbleTimer = setTimeout(hideBubble, 3500);
+  }
+
+  function hideBubble() {
     const bubble = document.getElementById('chalk-bubble');
     if (bubble) {
-      bubble.style.opacity = '1';
-      bubble.style.transform = 'translateY(0)';
-      setTimeout(function () {
-        bubble.style.opacity = '0';
-        bubble.style.transform = 'translateY(12px)';
-      }, 4000);
+      bubble.style.opacity = '0';
+      bubble.style.transform = 'translateY(12px)';
     }
   }
 

@@ -72,7 +72,7 @@
   </script>
 </head>
 
-<body class="min-h-full cursor-crosshair">
+<body class="min-h-full">
 
   <!-- ============================================================
        CHALKBOARD BACKGROUND
@@ -159,7 +159,7 @@
   </div>
 
   <!-- ============================================================
-       CHALK DRAWING CANVAS (Active Red Pen Annotations Everywhere)
+       CHALK DRAWING CANVAS (Active when chalk is chosen from shelf)
        ============================================================ -->
   <canvas id="chalk-canvas" class="chalk-canvas fixed inset-0 pointer-events-none z-10" aria-hidden="true"></canvas>
 
@@ -181,9 +181,9 @@
             </svg>
           </button>
         </div>
-        <!-- Orange/Red Chalk (Default selected) -->
+        <!-- Orange/Red Chalk -->
         <div class="animate-chalk-2">
-          <button type="button" class="chalk-btn selected" data-chalk-color="#E35342" aria-label="Red Chalk (Warm Accent)" title="Red Chalk/Pen (Click to draw)">
+          <button type="button" class="chalk-btn" data-chalk-color="#E35342" aria-label="Red Chalk (Warm Accent)" title="Red Chalk/Pen (Click to draw)">
             <svg width="16" height="46" viewBox="0 0 16 46" fill="none" xmlns="http://www.w3.org/2000/svg" class="overflow-visible">
               <ellipse cx="8" cy="43" rx="6" ry="2" fill="rgba(0,0,0,0.4)" />
               <path d="M3 11 C3 9 4.5 8 8 8 C11.5 8 13 9 13 11 L13 40 C13 42 11.5 43 8 43 C4.5 43 3 42 3 40 Z" fill="#E35342" stroke="#2A1B0E" stroke-width="1.2" />
@@ -371,9 +371,9 @@
             </div>
           </div>
 
-          <!-- Tagline with Highlights (Clean & concise like Arjun's) -->
-          <p class="font-hand text-base sm:text-lg text-on-mat/75 leading-relaxed mb-4">
-            <span class="text-accent">ai engineer</span> · software engineer · <span class="text-yellow-300">python, fastapi & etl pipelines</span>
+          <!-- Headline in Red Color (Arjun's exact style) -->
+          <p class="font-hand text-lg sm:text-xl md:text-2xl text-[#E35342] leading-relaxed mb-4">
+            building is my coping mechanism · SLAB-MITS Hackathon Winner · AI engineer
           </p>
 
           <!-- ============================================================

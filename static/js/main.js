@@ -125,9 +125,21 @@
       });
   }
 
-  if (heatmapContainer) {
-    fetchRealGitHubActivity();
+  // ─── Interactive Sticky Note & Card Wobble / Vibration on Click ───
+  function attachWobble(selector) {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    el.addEventListener('click', function (e) {
+      if (e.target.closest('a, button, input, [role="button"]')) return;
+      el.classList.remove('sticky-wobble');
+      void el.offsetWidth; // trigger reflow
+      el.classList.add('sticky-wobble');
+    });
   }
+
+  attachWobble('.yellow-note-card');
+  attachWobble('.github-card');
+  attachWobble('.polaroid-frame');
 
   // ─── Current Year in Footer ───
   const yearEl = document.getElementById('current-year');
