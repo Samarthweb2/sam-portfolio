@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sam — AI Engineer & Software Engineer</title>
+  <meta name="description" content="Final-year B.Tech CS student specializing in ML and AI engineering, Python, FastAPI, and data engineering." />
+  <meta name="author" content="Sam" />
+  <meta name="keywords" content="Sam, AI Engineer, Software Engineer, Python, FastAPI, ML, Data Analytics, ETL" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Sam — AI Engineer" />
+  <meta property="og:description" content="Final-year B.Tech CS student specializing in ML and AI engineering." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sam — AI Engineer" />
+  <meta name="twitter:description" content="Final-year B.Tech CS student specializing in ML and AI engineering." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mat: '#212121',
+            'mat-deep': '#191919',
+            'on-mat': '#e8e0d4',
+            accent: '#E35342',
+            'accent-soft': 'rgba(227, 83, 66, 0.25)',
+            paper: '#F5ECE3',
+            'chalk-white': '#F5ECE3',
+            'chalk-orange': '#E35342',
+            'chalk-yellow': '#F2C94C',
+          },
+          fontFamily: {
+            hand: ['Caveat', 'cursive'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          maxWidth: {
+            canvas: '1000px',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sam",
+    "alternateName": "Samarth Sharma",
+    "jobTitle": "AI Engineer",
+    "email": "samarthsrishishwar34@gmail.com",
+    "url": "https://github.com/SamarthWeb2",
+    "sameAs": ["https://github.com/SamarthWeb2"]
+  }
+  </script>
+</head>
+
+<body class="min-h-full cursor-crosshair">
+
+  <!-- ============================================================
+       CHALKBOARD BACKGROUND
+       ============================================================ -->
+  <div class="chalkboard-bg" aria-hidden="true">
+    <!-- Noise overlays -->
+    <div class="noise-layer-1"></div>
+    <div class="noise-layer-2"></div>
+
+    <!-- Geometric SVG overlay (chalkboard mathematical lines, crosshairs, arcs) -->
+    <svg class="geo-overlay animate-board-lines" preserveAspectRatio="none" viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Diagonal dashed lines -->
+      <line x1="0" y1="800" x2="1000" y2="0" stroke="rgba(255,255,255,0.22)" stroke-width="0.8" stroke-dasharray="8 4" />
+      <line x1="0" y1="680" x2="880" y2="0" stroke="rgba(255,255,255,0.16)" stroke-width="0.6" stroke-dasharray="6 3" />
+      <line x1="120" y1="800" x2="1000" y2="120" stroke="rgba(255,255,255,0.16)" stroke-width="0.6" stroke-dasharray="6 3" />
+
+      <!-- Crosshair markers -->
+      <g>
+        <line x1="234" y1="160" x2="246" y2="160" stroke="rgba(255,255,255,0.24)" stroke-width="0.8" />
+        <line x1="240" y1="154" x2="240" y2="166" stroke="rgba(255,255,255,0.24)" stroke-width="0.8" />
+      </g>
+      <g>
+        <line x1="474" y1="320" x2="486" y2="320" stroke="rgba(255,255,255,0.24)" stroke-width="0.8" />
+        <line x1="480" y1="314" x2="480" y2="326" stroke="rgba(255,255,255,0.24)" stroke-width="0.8" />
+      </g>
+      <g>
+        <line x1="714" y1="480" x2="726" y2="480" stroke="rgba(255,255,255,0.24)" stroke-width="0.8" />
+        <line x1="720" y1="474" x2="720" y2="486" stroke="rgba(255,255,255,0.24)" stroke-width="0.8" />
+      </g>
+
+      <!-- Arc angle measurements (bottom-left) -->
+      <g>
+        <path d="M 80 720 A 80 80 0 0 1 100.7 642.7" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 2" />
+        <text x="105" y="641" fill="rgba(255,255,255,0.2)" font-size="10" font-family="system-ui, sans-serif">15°</text>
+      </g>
+      <g>
+        <path d="M 80 720 A 135 135 0 0 1 147.5 603" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 2" />
+        <text x="151" y="601" fill="rgba(255,255,255,0.2)" font-size="10" font-family="system-ui, sans-serif">30°</text>
+      </g>
+      <g>
+        <path d="M 80 720 A 190 190 0 0 1 214.4 585.6" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 2" />
+        <text x="218" y="584" fill="rgba(255,255,255,0.2)" font-size="10" font-family="system-ui, sans-serif">45°</text>
+      </g>
+
+      <!-- Arc angle measurements (bottom-right) -->
+      <g>
+        <path d="M 920 720 A 80 80 0 0 0 899.3 642.7" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 2" />
+        <text x="891" y="641" text-anchor="end" fill="rgba(255,255,255,0.2)" font-size="10" font-family="system-ui, sans-serif">15°</text>
+      </g>
+      <g>
+        <path d="M 920 720 A 135 135 0 0 0 852.5 603" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 2" />
+        <text x="849" y="601" text-anchor="end" fill="rgba(255,255,255,0.2)" font-size="10" font-family="system-ui, sans-serif">30°</text>
+      </g>
+
+      <!-- Ruler tick marks (top edge) -->
+      <g>
+        <line x1="268" y1="6" x2="268" y2="20" stroke="rgba(255,255,255,0.16)" stroke-width="1" />
+        <text x="268" y="32" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-size="9" font-family="system-ui, sans-serif">5</text>
+      </g>
+      <g>
+        <line x1="528" y1="6" x2="528" y2="20" stroke="rgba(255,255,255,0.16)" stroke-width="1" />
+        <text x="528" y="32" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-size="9" font-family="system-ui, sans-serif">10</text>
+      </g>
+      <g>
+        <line x1="788" y1="6" x2="788" y2="20" stroke="rgba(255,255,255,0.16)" stroke-width="1" />
+        <text x="788" y="32" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-size="9" font-family="system-ui, sans-serif">15</text>
+      </g>
+
+      <!-- Chalk-drawn smiling cat doodle at the bottom (like Arjun's site!) -->
+      <g stroke="rgba(255,255,255,0.25)" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" transform="translate(760, 680) scale(0.75)">
+        <path d="M 20 45 Q 15 15 35 25 Q 50 20 65 25 Q 85 15 80 45 Q 85 70 50 70 Q 15 70 20 45 Z" />
+        <path d="M 33 42 Q 38 40 43 42" />
+        <path d="M 57 42 Q 62 40 67 42" />
+        <polygon points="47,48 53,48 50,52" fill="rgba(255,255,255,0.25)" />
+        <path d="M 50 52 Q 44 57 38 54" />
+        <path d="M 50 52 Q 56 57 62 54" />
+        <!-- Whiskers -->
+        <line x1="16" y1="48" x2="32" y2="50" />
+        <line x1="14" y1="54" x2="32" y2="53" />
+        <line x1="84" y1="48" x2="68" y2="50" />
+        <line x1="86" y1="54" x2="68" y2="53" />
+      </g>
+    </svg>
+  </div>
+
+  <!-- ============================================================
+       CHALK DRAWING CANVAS (Active Red Pen Annotations Everywhere)
+       ============================================================ -->
+  <canvas id="chalk-canvas" class="chalk-canvas fixed inset-0 pointer-events-none z-10" aria-hidden="true"></canvas>
+
+  <!-- ============================================================
+       CHALK SHELF (bottom-right)
+       ============================================================ -->
+  <aside class="chalk-tray hidden sm:flex" aria-label="Chalk Shelf" data-no-chalk="true">
+    <div class="flex items-end gap-2.5 px-2 pb-0">
+      <div class="flex items-end gap-1.5">
+        <!-- White Chalk -->
+        <div class="animate-chalk-1">
+          <button type="button" class="chalk-btn" data-chalk-color="#F5ECE3" aria-label="White Chalk" title="White Chalk (Click to draw)">
+            <svg width="16" height="46" viewBox="0 0 16 46" fill="none" xmlns="http://www.w3.org/2000/svg" class="overflow-visible">
+              <ellipse cx="8" cy="43" rx="6" ry="2" fill="rgba(0,0,0,0.4)" />
+              <path d="M3 11 C3 9 4.5 8 8 8 C11.5 8 13 9 13 11 L13 40 C13 42 11.5 43 8 43 C4.5 43 3 42 3 40 Z" fill="#F5ECE3" stroke="#2A1B0E" stroke-width="1.2" />
+              <path d="M3 11 L3 40 C3 42 4.5 43 6 43 L6 9 C4.5 9 3 10 3 11 Z" fill="#CFC2B4" opacity="0.55" />
+              <line x1="9.5" y1="9" x2="9.5" y2="41" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.75" />
+              <path d="M4 8 C4.5 5 6 3 8 2.5 C10 3 11.5 5 12 8 Z" fill="#E4D8CC" stroke="#2A1B0E" stroke-width="1.2" />
+            </svg>
+          </button>
+        </div>
+        <!-- Orange/Red Chalk (Default selected) -->
+        <div class="animate-chalk-2">
+          <button type="button" class="chalk-btn selected" data-chalk-color="#E35342" aria-label="Red Chalk (Warm Accent)" title="Red Chalk/Pen (Click to draw)">
+            <svg width="16" height="46" viewBox="0 0 16 46" fill="none" xmlns="http://www.w3.org/2000/svg" class="overflow-visible">
+              <ellipse cx="8" cy="43" rx="6" ry="2" fill="rgba(0,0,0,0.4)" />
+              <path d="M3 11 C3 9 4.5 8 8 8 C11.5 8 13 9 13 11 L13 40 C13 42 11.5 43 8 43 C4.5 43 3 42 3 40 Z" fill="#E35342" stroke="#2A1B0E" stroke-width="1.2" />
+              <path d="M3 11 L3 40 C3 42 4.5 43 6 43 L6 9 C4.5 9 3 10 3 11 Z" fill="#B23324" opacity="0.55" />
+              <line x1="9.5" y1="9" x2="9.5" y2="41" stroke="#FFA08F" stroke-width="1.2" stroke-linecap="round" opacity="0.75" />
+              <path d="M4 8 C4.5 5 6 3 8 2.5 C10 3 11.5 5 12 8 Z" fill="#CC4333" stroke="#2A1B0E" stroke-width="1.2" />
+            </svg>
+          </button>
+        </div>
+        <!-- Yellow Chalk -->
+        <div class="animate-chalk-3">
+          <button type="button" class="chalk-btn" data-chalk-color="#F2C94C" aria-label="Yellow Chalk" title="Yellow Chalk (Click to draw)">
+            <svg width="16" height="46" viewBox="0 0 16 46" fill="none" xmlns="http://www.w3.org/2000/svg" class="overflow-visible">
+              <ellipse cx="8" cy="43" rx="6" ry="2" fill="rgba(0,0,0,0.4)" />
+              <path d="M3 11 C3 9 4.5 8 8 8 C11.5 8 13 9 13 11 L13 40 C13 42 11.5 43 8 43 C4.5 43 3 42 3 40 Z" fill="#F2C94C" stroke="#2A1B0E" stroke-width="1.2" />
+              <path d="M3 11 L3 40 C3 42 4.5 43 6 43 L6 9 C4.5 9 3 10 3 11 Z" fill="#BD8F15" opacity="0.55" />
+              <line x1="9.5" y1="9" x2="9.5" y2="41" stroke="#FFF099" stroke-width="1.2" stroke-linecap="round" opacity="0.75" />
+              <path d="M4 8 C4.5 5 6 3 8 2.5 C10 3 11.5 5 12 8 Z" fill="#D9AC28" stroke="#2A1B0E" stroke-width="1.2" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- Duster -->
+      <div class="pl-1 animate-duster">
+        <button type="button" id="duster-btn" class="chalk-btn" aria-label="Chalk Duster" title="Click to erase · Double-click to wipe all">
+          <svg width="56" height="44" viewBox="0 0 56 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="overflow-visible">
+            <ellipse cx="28" cy="39" rx="24" ry="2.5" fill="rgba(0,0,0,0.38)" />
+            <polygon points="10,12 46,12 52,30 4,30" fill="#F1B846" stroke="#2B1607" stroke-width="1.4" stroke-linejoin="round" />
+            <polygon points="12,14 44,14 48,19 8,19" fill="#FFDC73" opacity="0.8" />
+            <line x1="12" y1="24" x2="44" y2="24" stroke="#D39726" stroke-width="1.2" stroke-linecap="round" />
+            <polygon points="4,30 52,30 53,35 3,35" fill="#F5ECE3" stroke="#2B1607" stroke-width="1.4" stroke-linejoin="round" />
+            <line x1="5" y1="32.5" x2="51" y2="32.5" stroke="#DDD3C7" stroke-width="0.8" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Shelf ledge -->
+    <div class="chalk-ledge animate-ledge-drop"></div>
+  </aside>
+
+  <!-- Chalk bubble message -->
+  <div id="chalk-bubble" class="fixed left-4 sm:left-8 bottom-4 sm:bottom-8 z-50 pointer-events-none transition-all duration-700 opacity-0 translate-y-12">
+    <div class="relative">
+      <div class="chalk-bubble">Go ahead, sketch or annotate anywhere :)</div>
+      <div class="chalk-bubble-tail"></div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       MAIN CONTENT SHELL
+       ============================================================ -->
+  <div id="site-shell" class="relative mx-auto min-h-screen w-full max-w-canvas px-4 pb-12 sm:px-6 sm:pb-16">
+
+    <!-- Floating stickers (Arjun's style) -->
+    <div class="pointer-events-none absolute inset-0 z-30 hidden xl:block" aria-hidden="true">
+      <!-- Top-left sticker: Copy Profile -->
+      <div class="absolute pointer-events-auto animate-sticker-pop" style="top: 8%; left: -3%; --sticker-delay: 200ms; --sticker-rotate: 12deg;">
+        <button onclick="navigator.clipboard.writeText('Sam - AI Engineer - github.com/SamarthWeb2'); alert('Copied profile summary!');" class="group flex items-center justify-center rounded-xl border-4 border-[var(--color-sticker-outline)] bg-[var(--color-paper)] text-[var(--color-accent)] shadow-[3px_4px_0_var(--color-shadow)] h-12 w-12 hover:scale-105 transition-transform" title="Copy profile text">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        </button>
+      </div>
+      <!-- Coffee Sticker -->
+      <div class="absolute pointer-events-none animate-sticker-pop" style="top: 24%; right: -3%; --sticker-delay: 450ms; --sticker-rotate: -10deg;">
+        <div class="flex items-center justify-center rounded-xl border-4 border-[var(--color-sticker-outline)] bg-[var(--color-paper)] text-[var(--color-accent)] shadow-[3px_4px_0_var(--color-shadow)] h-12 w-12">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────────── NAVIGATION ──────────────── -->
+    <header class="nav-container animate-nav-drop">
+      <div class="relative max-w-full">
+        <!-- Nav background shape (trapezoid) -->
+        <svg class="nav-bg-shape" viewBox="0 -100 100 200" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <filter id="nav-bg-noise" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="48" result="noise" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0.95 0 0 0 0 0.95 0 0 0 0 0.95 0 0 0 0.010 0" result="grainOverlay" />
+              <feComposite in="grainOverlay" in2="SourceGraphic" operator="in" result="clippedGrain" />
+              <feMerge>
+                <feMergeNode in="SourceGraphic" />
+                <feMergeNode in="clippedGrain" />
+              </feMerge>
+            </filter>
+            <filter id="nav-chalk-border" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.05 0.12" numOctaves="2" seed="44" result="wobble" />
+              <feDisplacementMap in="SourceGraphic" in2="wobble" scale="0.85" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </defs>
+          <!-- Dark trapezoid fill -->
+          <path d="M -18 -100 L 118 -100 L 108 0 L 100 84 Q 99 100 94 100 L 6 100 Q 1 100 0 84 L -8 0 Z"
+                fill="#212121" fill-opacity="0.95" filter="url(#nav-bg-noise)" />
+          <!-- Chalk border -->
+          <g fill="none" stroke="#e8e0d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+             filter="url(#nav-chalk-border)" opacity="0.55">
+            <path d="M -18 -100 L -8 0 L 0 84 Q 1 100 6 100 L 94 100 Q 99 100 100 84 L 108 0 L 118 -100"
+                  vector-effect="non-scaling-stroke" />
+          </g>
+        </svg>
+
+        <nav aria-label="Primary" class="nav-inner">
+          <a href="#profile" class="nav-link active" data-section="profile" style="--nav-link-delay: 220ms">
+            <span class="relative z-10">About</span>
+            <svg viewBox="0 0 100 14" preserveAspectRatio="none" class="scribble-underline" aria-hidden="true">
+              <defs>
+                <filter id="scribble-chalk" x="-20%" y="-40%" width="140%" height="180%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.04 0.1" numOctaves="2" seed="18" result="wobble" />
+                  <feDisplacementMap in="SourceGraphic" in2="wobble" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+              </defs>
+              <path d="M 3 8 C 16 5.5, 32 10.5, 48 7.5 C 64 4.5, 80 9.5, 97 6.5" pathLength="100"
+                    fill="none" stroke="#E35342" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"
+                    filter="url(#scribble-chalk)" opacity="0.85" />
+            </svg>
+          </a>
+          <a href="https://github.com/SamarthWeb2" target="_blank" rel="noopener noreferrer" class="nav-link" style="--nav-link-delay: 320ms">
+            <span class="relative z-10">GitHub</span>
+          </a>
+          <a href="mailto:samarthsrishishwar34@gmail.com" class="nav-link" style="--nav-link-delay: 400ms">
+            <span class="relative z-10">Contact</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+
+    <!-- ──────────────── HERO SECTION (ARJUN'S EXACT PATTERN) ──────────────── -->
+    <!-- Photo on Left -> Bio on Right/Top -> Yellow Card -> GitHub Activity below -->
+    <section id="profile" class="pt-4 pb-10 sm:pt-6 sm:pb-16">
+      
+      <!-- Top Row: Photo + Name + Social Icons -->
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 mb-6">
+        
+        <!-- LEFT: Polaroid Frame with Samarth's Photo + Red Pushpin -->
+        <div class="polaroid-wrapper shrink-0 animate-hero-name">
+          <div class="polaroid-frame">
+            <!-- Pushpin at top center -->
+            <div class="pushpin" aria-hidden="true"></div>
+            <!-- Samarth's Profile Photo -->
+            <img 
+              src="{{ url_for('static', filename='assets/profile.jpg') }}" 
+              alt="Sam" 
+              class="polaroid-img"
+              loading="eager"
+            />
+            <!-- Little copy sticker attached to corner -->
+            <div class="polaroid-sticker-btn">
+              <div class="flex items-center justify-center w-8 h-8 rounded-lg border-2 border-[var(--color-sticker-outline)] bg-[var(--color-paper)] text-[var(--color-accent)] shadow-[2px_2px_0_var(--color-shadow)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Name, Tagline & Social Badges -->
+        <div class="flex-1 w-full text-center md:text-left pt-1">
+          
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-1.5">
+            <!-- Name -->
+            <div>
+              <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-shadow-chalk tracking-tight text-on-mat leading-tight">
+                Sam
+              </h1>
+            </div>
+
+            <!-- Circular Social Buttons (Top Right, matching Arjun's layout) -->
+            <div class="flex items-center justify-center md:justify-end gap-2 shrink-0 animate-hero-socials">
+              <!-- LinkedIn -->
+              <a href="#" target="_blank" rel="noopener noreferrer" class="social-link w-9 h-9 sm:w-10 sm:h-10 !rounded-full" title="LinkedIn" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <!-- GitHub -->
+              <a href="https://github.com/SamarthWeb2" target="_blank" rel="noopener noreferrer" class="social-link w-9 h-9 sm:w-10 sm:h-10 !rounded-full" title="GitHub (@SamarthWeb2)" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+              <!-- Email -->
+              <a href="mailto:samarthsrishishwar34@gmail.com" class="social-link w-9 h-9 sm:w-10 sm:h-10 !rounded-full" title="Email Sam" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </a>
+              <!-- X / Twitter -->
+              <a href="#" target="_blank" rel="noopener noreferrer" class="social-link w-9 h-9 sm:w-10 sm:h-10 !rounded-full" title="X / Twitter" aria-label="Twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tagline with Highlights (Clean & concise like Arjun's) -->
+          <p class="font-hand text-base sm:text-lg text-on-mat/75 leading-relaxed mb-4">
+            <span class="text-accent">ai engineer</span> · software engineer · <span class="text-yellow-300">python, fastapi & etl pipelines</span>
+          </p>
+
+          <!-- ============================================================
+               1. POINT-WISE BIO IN YELLOW STICKY-NOTE CARD (Exact Arjun style, clean text)
+               ============================================================ -->
+          <div class="yellow-note-card animate-fade-up">
+            <!-- Bullet 1 -->
+            <div class="bio-bullet">
+              <span class="bio-dot"></span>
+              <p>
+                Final-year B.Tech Computer Science student specializing in <span class="highlight">ML and AI engineering</span>.
+              </p>
+            </div>
+
+            <!-- Bullet 2 -->
+            <div class="bio-bullet">
+              <span class="bio-dot"></span>
+              <p>
+                Backend & API builder with <span class="highlight">Python, FastAPI, REST APIs</span>, and relational databases (PostgreSQL, MySQL, SQLite).
+              </p>
+            </div>
+
+            <!-- Bullet 3 -->
+            <div class="bio-bullet">
+              <span class="bio-dot"></span>
+              <p>
+                Data & Problem Solving with <span class="highlight">Pandas, NumPy, Power BI</span>, backed by strong <span class="highlight-subtle">DSA & OOP</span> foundations.
+              </p>
+            </div>
+
+            <!-- Bullet 4 -->
+            <div class="bio-bullet">
+              <span class="bio-dot"></span>
+              <p>
+                Hackathons & Coding Contests participant and <span class="highlight">active builder</span>.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================
+           2. GITHUB ACTIVITY CARD (Exact Compact Arjun Style with Masking Tape)
+           ============================================================ -->
+      <div class="relative max-w-[720px] mx-auto mt-8 animate-fade-up">
+        <!-- Masking tape strips holding card to chalkboard -->
+        <div class="github-tape github-tape-left" aria-hidden="true"></div>
+        <div class="github-tape github-tape-right" aria-hidden="true"></div>
+
+        <div class="github-card">
+          <!-- Card Header -->
+          <div class="flex items-center justify-between pb-2.5 border-b border-stone-200/70 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold text-stone-800 tracking-tight">GitHub activity</span>
+            </div>
+            <a href="https://github.com/SamarthWeb2" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-stone-500 hover:text-stone-900 transition-colors flex items-center gap-1">
+              <span>@SamarthWeb2</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <!-- Heatmap Container -->
+          <div class="github-grid-wrapper py-1">
+            <div class="min-w-[620px]">
+              <!-- Month labels header -->
+              <div class="grid grid-cols-12 text-[10px] text-stone-400 font-sans pl-7 pr-2 mb-1.5">
+                <span>Sep</span>
+                <span>Oct</span>
+                <span>Nov</span>
+                <span>Dec</span>
+                <span>Jan</span>
+                <span>Feb</span>
+                <span>Mar</span>
+                <span>Apr</span>
+                <span>May</span>
+                <span>Jun</span>
+                <span>Jul</span>
+                <span>Aug</span>
+              </div>
+
+              <!-- Matrix with Days on left -->
+              <div class="flex items-start gap-1.5">
+                <!-- Day labels -->
+                <div class="flex flex-col justify-between text-[9px] text-stone-400 font-sans h-[82px] py-1 shrink-0 w-6">
+                  <span>Mon</span>
+                  <span>Wed</span>
+                  <span>Fri</span>
+                </div>
+
+                <!-- 52 columns x 7 rows heatmap grid (generated dynamically or SVG) -->
+                <div id="github-heatmap-grid" class="flex gap-[2.5px]">
+                  <!-- Injected by main.js with realistic/live green distribution -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="flex items-center justify-between pt-2.5 border-t border-stone-200/70 text-[11px] text-stone-500 mt-1 font-sans">
+            <span id="gh-contrib-count">4,175 contributions in the last year</span>
+            <div class="flex items-center gap-1">
+              <span class="text-[10px] text-stone-400">Less</span>
+              <span class="inline-block w-2.5 h-2.5 rounded-[2px] bg-[#ebedf0]"></span>
+              <span class="inline-block w-2.5 h-2.5 rounded-[2px] bg-[#9be9a8]"></span>
+              <span class="inline-block w-2.5 h-2.5 rounded-[2px] bg-[#40c463]"></span>
+              <span class="inline-block w-2.5 h-2.5 rounded-[2px] bg-[#30a14e]"></span>
+              <span class="inline-block w-2.5 h-2.5 rounded-[2px] bg-[#216e39]"></span>
+              <span class="text-[10px] text-stone-400">More</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ──────────────── FOOTER ──────────────── -->
+    <footer class="border-t border-white/5 py-8 text-center mt-12">
+      <p class="text-on-mat/30 text-xs sm:text-sm">
+        Built with chalk & code · <span class="font-hand text-accent/70">Sam</span> © <span id="current-year">2026</span>
+      </p>
+    </footer>
+
+  </div><!-- end #site-shell -->
+
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/chalk-canvas.js') }}"></script>
+
+</body>
+</html>

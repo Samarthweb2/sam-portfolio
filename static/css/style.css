@@ -1,0 +1,967 @@
+/* ============================================================
+   SAM'S CHALKBOARD PORTFOLIO — Custom Styles
+   ============================================================ */
+
+/* ---------- CSS Custom Properties (Design Tokens) ---------- */
+:root {
+  --color-mat: #212121;
+  --color-mat-deep: #191919;
+  --color-on-mat: #e8e0d4;
+  --color-accent: #E35342;
+  --color-accent-soft: #e3534280;
+  --color-yellow: #F2C94C;
+  --color-paper: #F5ECE3;
+  --color-sticker-outline: #3d2b1f;
+  --color-shadow: rgba(0, 0, 0, 0.55);
+  --color-chalk-white: #F5ECE3;
+  --color-chalk-orange: #E35342;
+  --color-chalk-yellow: #F2C94C;
+  --content-max-canvas: 1100px;
+}
+
+/* ---------- Base Reset & Body ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-mat);
+  color: var(--color-on-mat);
+  overflow-x: hidden;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-mat-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Handwritten Font ---------- */
+.font-hand {
+  font-family: 'Caveat', 'Gochi Hand', cursive;
+}
+
+/* ---------- Text Shadow for Chalk Effect ---------- */
+.text-shadow-chalk {
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.08),
+    0 0 20px rgba(255, 255, 255, 0.04);
+}
+
+.text-shadow-accent {
+  text-shadow:
+    0 0 10px rgba(227, 83, 66, 0.3),
+    0 0 30px rgba(227, 83, 66, 0.1);
+}
+
+/* ---------- Chalkboard Background ---------- */
+.chalkboard-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  background-color: var(--color-mat);
+  background-image: radial-gradient(
+    ellipse 130% 95% at 50% 20%,
+    #262626 0%,
+    var(--color-mat-deep) 100%
+  );
+}
+
+.chalkboard-bg .noise-layer-1 {
+  position: absolute;
+  inset: 0;
+  opacity: 0.24;
+  mix-blend-mode: soft-light;
+  background-image: url('/static/assets/noise.png');
+  background-size: 81px 81px;
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+.chalkboard-bg .noise-layer-2 {
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  background-image: url('/static/assets/noise.png');
+  background-size: 162px 162px;
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+/* ---------- Geometric SVG Overlay ---------- */
+.geo-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ---------- Canvas (Drawing) ---------- */
+.chalk-canvas {
+  pointer-events: none;
+  z-index: 10;
+  user-select: none;
+}
+
+.chalk-canvas.active {
+  pointer-events: auto;
+  cursor: crosshair;
+}
+
+.chalk-canvas.eraser-mode {
+  cursor: cell;
+}
+
+/* ---------- Chalk Shelf ---------- */
+.chalk-tray {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+
+@media (min-width: 640px) {
+  .chalk-tray {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+.chalk-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 4px 4px 2px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: none;
+  opacity: 0.9;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.chalk-btn:hover {
+  transform: translateY(-6px) scale(1.02);
+  opacity: 1;
+}
+
+.chalk-btn.selected {
+  opacity: 1;
+  transform: translateY(-8px) scale(1.05);
+}
+
+.chalk-ledge {
+  position: relative;
+  height: 6px;
+  width: 100%;
+  min-width: 175px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgb(174, 145, 112) 50%, rgb(82, 46, 20) 100%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Sticky Navigation ---------- */
+.nav-container {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 6px 12px var(--color-shadow));
+}
+
+.nav-bg-shape {
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  top: -100px;
+  height: calc(100% + 100px);
+  width: 100%;
+  overflow: visible;
+}
+
+.nav-inner {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.nav-inner::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .nav-inner {
+    gap: 0.75rem;
+    padding: 0.625rem 1.5rem;
+  }
+}
+
+.nav-link {
+  position: relative;
+  flex-shrink: 0;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-on-mat);
+  opacity: 0.7;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  opacity: 1;
+}
+
+@media (min-width: 640px) {
+  .nav-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Chalk scribble underline for active link */
+.nav-link .scribble-underline {
+  position: absolute;
+  bottom: 2px;
+  left: 10px;
+  right: 10px;
+  height: 8px;
+  overflow: visible;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link.active .scribble-underline,
+.nav-link:hover .scribble-underline {
+  opacity: 1;
+}
+
+/* Connect button (social link) */
+.connect-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  margin-left: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-on-mat);
+  text-decoration: none;
+  transition: transform 0.15s ease;
+  cursor: pointer;
+}
+
+.connect-btn:hover {
+  transform: scale(1.02);
+}
+
+@media (min-width: 640px) {
+  .connect-btn {
+    margin-left: 0.75rem;
+    padding: 0.375rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+.connect-btn .connect-bg {
+  position: absolute;
+  inset: -6px;
+  transform: rotate(-7deg);
+  transition: transform 0.15s ease;
+}
+
+.connect-btn:hover .connect-bg {
+  transform: rotate(-2deg) scale(1.03);
+}
+
+/* ---------- Stickers ---------- */
+.sticker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 4px solid var(--color-sticker-outline);
+  background: var(--color-paper);
+  color: var(--color-accent);
+  box-shadow: 3px 4px 0 var(--color-shadow);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sticker:hover {
+  box-shadow: 4px 6px 0 var(--color-shadow);
+  transform: translateY(-2px);
+}
+
+/* ---------- Polaroid Photo Card with Pushpin ---------- */
+.polaroid-wrapper {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+}
+
+.polaroid-frame {
+  position: relative;
+  background: #fdfbf7;
+  padding: 10px 10px 34px 10px;
+  border-radius: 4px;
+  box-shadow: 
+    0 14px 28px rgba(0, 0, 0, 0.45),
+    0 10px 10px rgba(0, 0, 0, 0.35);
+  transform: rotate(-6deg);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+  width: 200px;
+}
+
+@media (min-width: 640px) {
+  .polaroid-frame {
+    width: 225px;
+    padding: 12px 12px 40px 12px;
+  }
+}
+
+.polaroid-frame:hover {
+  transform: rotate(-2deg) scale(1.03);
+  box-shadow: 
+    0 20px 35px rgba(0, 0, 0, 0.55),
+    0 12px 15px rgba(0, 0, 0, 0.4);
+}
+
+.polaroid-frame .pushpin {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 35% 35%, #ff7675 0%, #d63031 65%, #851314 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.55), inset 0 -2px 3px rgba(0,0,0,0.4);
+  z-index: 10;
+}
+
+.polaroid-frame .pushpin::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+}
+
+.polaroid-img {
+  width: 100%;
+  height: 235px;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 2px;
+  filter: contrast(1.03) saturate(1.02);
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .polaroid-img {
+    height: 270px;
+  }
+}
+
+.polaroid-sticker-btn {
+  position: absolute;
+  bottom: 8px;
+  left: -14px;
+  z-index: 12;
+  transform: rotate(10deg);
+}
+
+/* ---------- Yellow Sticky Note Bio Card ---------- */
+.yellow-note-card {
+  background-color: #FEF3C7;
+  background-image: radial-gradient(#FDE68A 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+  color: #3b2a1a;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 
+    0 15px 35px -5px rgba(0, 0, 0, 0.45),
+    0 6px 12px rgba(0,0,0,0.25);
+  position: relative;
+  border: 1px solid rgba(217, 119, 6, 0.22);
+}
+
+@media (min-width: 640px) {
+  .yellow-note-card {
+    padding: 2rem 2.25rem;
+  }
+}
+
+.yellow-note-card .bio-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.95rem;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: #452c1e;
+}
+
+@media (min-width: 640px) {
+  .yellow-note-card .bio-bullet {
+    font-size: 1rem;
+    margin-bottom: 1.1rem;
+  }
+}
+
+.yellow-note-card .bio-bullet:last-child {
+  margin-bottom: 0;
+}
+
+.yellow-note-card .bio-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #E35342;
+  margin-top: 0.55rem;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(227, 83, 66, 0.4);
+}
+
+.yellow-note-card .highlight {
+  color: #C0392B;
+  font-weight: 600;
+  text-decoration: underline wavy rgba(192, 57, 43, 0.38);
+  text-underline-offset: 2.5px;
+}
+
+.yellow-note-card .highlight-subtle {
+  font-weight: 600;
+  color: #291a11;
+}
+
+/* ---------- GitHub Activity Card (Arjun Style) ---------- */
+.github-card {
+  background: #FAF6F0;
+  color: #1c1917;
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 
+    0 16px 36px -6px rgba(0, 0, 0, 0.55),
+    0 6px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .github-card {
+    padding: 1.35rem 1.75rem;
+  }
+}
+
+/* Tape strips on top of the card */
+.github-tape {
+  position: absolute;
+  top: -8px;
+  width: 48px;
+  height: 18px;
+  background: rgba(215, 196, 175, 0.7);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  pointer-events: none;
+  z-index: 10;
+  backdrop-filter: blur(1px);
+}
+
+.github-tape-left {
+  left: 36px;
+  transform: rotate(-2.5deg);
+}
+
+.github-tape-right {
+  right: 36px;
+  transform: rotate(2deg);
+}
+
+.github-grid-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 2px;
+}
+
+.github-grid-wrapper::-webkit-scrollbar {
+  height: 4px;
+}
+.github-grid-wrapper::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 2px;
+}
+
+.gh-cell {
+  width: 9.5px;
+  height: 9.5px;
+  border-radius: 2px;
+  transition: transform 0.1s ease;
+}
+
+@media (min-width: 640px) {
+  .gh-cell {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.gh-cell:hover {
+  transform: scale(1.3);
+}
+
+.gh-l0 { background-color: #ebedf0; }
+.gh-l1 { background-color: #9be9a8; }
+.gh-l2 { background-color: #40c463; }
+.gh-l3 { background-color: #30a14e; }
+.gh-l4 { background-color: #216e39; }
+
+/* ---------- Section Cards ---------- */
+.chalk-card {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.chalk-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.05)
+  );
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2rem;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--color-accent);
+  background: var(--color-mat);
+  z-index: 2;
+}
+
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0.15;
+}
+
+/* ---------- Project Cards ---------- */
+.project-card {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  border-color: var(--color-accent-soft);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(227, 83, 66, 0.08);
+}
+
+.project-card .project-image {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- Social Links ---------- */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-on-mat);
+  opacity: 0.7;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.social-link:hover {
+  opacity: 1;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(227, 83, 66, 0.2);
+}
+
+/* ---------- Tech Badge ---------- */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.75rem;
+  color: var(--color-on-mat);
+  opacity: 0.8;
+}
+
+/* ---------- Section Heading ---------- */
+.section-heading {
+  font-family: 'Caveat', cursive;
+  font-size: 1.75rem;
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+@media (min-width: 640px) {
+  .section-heading {
+    font-size: 2.25rem;
+  }
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-accent);
+  opacity: 0.3;
+  border-radius: 2px;
+}
+
+/* ---------- Bubble message ---------- */
+.chalk-bubble {
+  background: #ffe0d1;
+  color: var(--color-accent);
+  font-family: 'Caveat', cursive;
+  font-size: 17px;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ffbfa8;
+  transform: rotate(-4deg);
+  max-width: 240px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 640px) {
+  .chalk-bubble {
+    font-size: 19px;
+  }
+}
+
+.chalk-bubble-tail {
+  position: absolute;
+  bottom: -8px;
+  left: 32px;
+  width: 20px;
+  height: 20px;
+  background: #ffe0d1;
+  border-bottom: 1px solid #ffbfa8;
+  border-right: 1px solid #ffbfa8;
+  transform: rotate(45deg);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+/* --- Nav drop from top --- */
+@keyframes navDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-nav-drop {
+  animation: navDrop 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- Nav link stagger --- */
+@keyframes navLinkIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-nav-link {
+  opacity: 0;
+  animation: navLinkIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--nav-link-delay, 0ms);
+}
+
+/* --- Chalk sticks entrance --- */
+@keyframes chalkPop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  60% {
+    transform: translateY(-4px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-chalk-1 { animation: chalkPop 0.5s 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; opacity: 0; }
+.animate-chalk-2 { animation: chalkPop 0.5s 0.95s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; opacity: 0; }
+.animate-chalk-3 { animation: chalkPop 0.5s 1.1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; opacity: 0; }
+.animate-duster  { animation: chalkPop 0.5s 1.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; opacity: 0; }
+
+/* --- Ledge drop --- */
+@keyframes ledgeDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-ledge-drop {
+  animation: ledgeDrop 0.4s 0.7s ease forwards;
+  opacity: 0;
+}
+
+/* --- Sticker pop --- */
+@keyframes stickerPop {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(var(--sticker-rotate, 0deg));
+  }
+  50% {
+    transform: scale(1.2) rotate(var(--sticker-rotate, 0deg));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(var(--sticker-rotate, 0deg));
+  }
+}
+
+.animate-sticker-pop {
+  opacity: 0;
+  animation: stickerPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: var(--sticker-delay, 0ms);
+}
+
+/* --- Fade up (scroll reveal) --- */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animate-fade-up.visible {
+  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- Hero entrance --- */
+@keyframes heroName {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-hero-name {
+  animation: heroName 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes heroTagline {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-tagline {
+  animation: heroTagline 0.7s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-hero-meta {
+  animation: heroTagline 0.7s 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-hero-socials {
+  animation: heroTagline 0.7s 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+/* --- Connect stamp --- */
+@keyframes connectStamp {
+  0% {
+    opacity: 0;
+    transform: scale(1.4) rotate(-15deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(0.95) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-7deg);
+  }
+}
+
+.animate-connect-stamp {
+  animation: connectStamp 0.5s 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+/* --- Bubble float in --- */
+@keyframes bubbleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-bubble {
+  opacity: 0;
+  animation: bubbleFloat 0.6s 2s ease forwards;
+}
+
+/* --- Board lines subtle pulse --- */
+@keyframes boardLinesPulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.35; }
+}
+
+.animate-board-lines {
+  animation: boardLinesPulse 8s ease-in-out infinite;
+}
+
+/* ============================================================
+   SVG CHALK FILTERS (defined inline in HTML for browser compat)
+   ============================================================ */
+
+/* Filter styles applied through SVG filter attribute */
