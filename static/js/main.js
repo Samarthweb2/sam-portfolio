@@ -136,20 +136,24 @@
     });
   }
 
-  const yellowNoteEl = document.querySelector('.yellow-note-card');
-  if (yellowNoteEl) {
-    const triggerPaperWobble = function (e) {
-      // If user clicked/tapped a link or button, don't interfere
+  const note = document.getElementById('yellow-sticky-note') || document.querySelector('.yellow-note-card');
+  if (note) {
+    function triggerNoteWobble(e) {
+      // Allow links/buttons inside to behave normally
       if (e.target.closest('a, button, [role="button"]')) return;
 
-      yellowNoteEl.classList.remove('paper-wobble');
-      void yellowNoteEl.offsetWidth; // trigger reflow for restartable animation
-      yellowNoteEl.classList.add('paper-wobble');
-    };
+      note.classList.remove('note-wobble');
+      void note.offsetWidth; // Force synchronous reflow to restart animation on repeated clicks
+      note.classList.add('note-wobble');
+    }
 
-    yellowNoteEl.addEventListener('click', triggerPaperWobble);
-    yellowNoteEl.addEventListener('animationend', function () {
-      yellowNoteEl.classList.remove('paper-wobble');
+    // Support both mouse clicks and mobile taps
+    note.addEventListener('click', triggerNoteWobble);
+
+    note.addEventListener('animationend', function (e) {
+      if (e.animationName === 'noteWobble') {
+        note.classList.remove('note-wobble');
+      }
     });
   }
 
