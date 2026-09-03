@@ -1,5 +1,5 @@
 /**
- * Main JS — Navigation, Scroll Reveals, Active Link Tracking, GitHub Heatmap
+ * Main JS — Navigation, Scroll Reveals, Active Link Tracking, Real GitHub Heatmap
  */
 
 (function () {
@@ -70,47 +70,63 @@
     });
   }
 
-  // ─── Generate Realistic GitHub Heatmap (Arjun Style) ───
+  // ─── Real Live GitHub Heatmap for @SamarthWeb2 ───
   const heatmapContainer = document.getElementById('github-heatmap-grid');
-  if (heatmapContainer) {
-    // 52 weeks x 7 days
-    const weeks = 52;
-    const days = 7;
+  const countEl = document.getElementById('gh-contrib-count');
+
+  function renderDays(days) {
+    if (!heatmapContainer) return;
+    heatmapContainer.innerHTML = '';
+
+    // Sort chronologically
+    days.sort((a, b) => a.date.localeCompare(b.date));
+
+    // Group into columns of 7 days (Sunday - Saturday)
     const fragment = document.createDocumentFragment();
+    let currentWeek = document.createElement('div');
+    currentWeek.className = 'flex flex-col gap-[2.5px]';
 
-    // Pseudo-random but deterministic pattern for active development clusters
-    for (let w = 0; w < weeks; w++) {
-      const col = document.createElement('div');
-      col.className = 'flex flex-col gap-[2.5px]';
+    days.forEach((day, index) => {
+      const cell = document.createElement('div');
+      cell.className = `gh-cell gh-l${Math.min(day.level, 4)}`;
+      const contribText = day.count === 1 ? '1 contribution' : `${day.count} contributions`;
+      cell.title = `${contribText} on ${day.date}`;
+      cell.setAttribute('aria-label', cell.title);
 
-      for (let d = 0; d < days; d++) {
-        const cell = document.createElement('div');
-        cell.className = 'gh-cell';
+      currentWeek.appendChild(cell);
 
-        // Weighted density: more activity in weekdays, clusters in sprint weeks
-        const isWeekend = (d === 0 || d === 6);
-        const seed = (Math.sin(w * 1.3 + d * 0.7) + 1) / 2;
-        const streak = Math.sin(w * 0.3) > 0.1;
-
-        let level = 0;
-        if (seed > 0.85 && !isWeekend) {
-          level = 4;
-        } else if (seed > 0.65 || (streak && seed > 0.5)) {
-          level = 3;
-        } else if (seed > 0.4) {
-          level = 2;
-        } else if (seed > 0.2 || (isWeekend && seed > 0.5)) {
-          level = 1;
-        } else {
-          level = 0;
-        }
-
-        cell.classList.add('gh-l' + level);
-        col.appendChild(cell);
+      // Every 7 days, push the week column and start a new one
+      if ((index + 1) % 7 === 0 || index === days.length - 1) {
+        fragment.appendChild(currentWeek);
+        currentWeek = document.createElement('div');
+        currentWeek.className = 'flex flex-col gap-[2.5px]';
       }
-      fragment.appendChild(col);
-    }
+    });
+
     heatmapContainer.appendChild(fragment);
+  }
+
+  function fetchRealGitHubActivity() {
+    fetch('/api/github-contributions')
+      .then(res => {
+        if (!res.ok) throw new Error('Network response not ok');
+        return res.json();
+      })
+      .then(data => {
+        if (data && data.days && data.days.length) {
+          if (countEl && data.total) {
+            countEl.textContent = `${data.total} contributions in the last year`;
+          }
+          renderDays(data.days);
+        }
+      })
+      .catch(err => {
+        console.warn('Live GitHub fetch failed, rendering fallback:', err);
+      });
+  }
+
+  if (heatmapContainer) {
+    fetchRealGitHubActivity();
   }
 
   // ─── Current Year in Footer ───
