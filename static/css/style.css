@@ -456,11 +456,16 @@ body {
   --note-base-rot: 1.2deg;
   transform: rotate(var(--note-base-rot));
   transform-origin: 50% 10% !important; /* Pinned at top edge */
-  cursor: pointer !important;
+  cursor: default;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   user-select: none;
   transition: box-shadow 0.25s ease;
+}
+
+.yellow-note-card:focus-visible {
+  outline: 2px dashed rgba(227, 83, 66, 0.7);
+  outline-offset: 4px;
 }
 
 /* Subtle translucent adhesive band indicator along top edge */

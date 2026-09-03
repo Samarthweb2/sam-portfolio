@@ -138,19 +138,20 @@
 
   const note = document.getElementById('yellow-sticky-note') || document.querySelector('.yellow-note-card');
   if (note) {
-    function triggerNoteWobble(e) {
-      // Allow links/buttons inside to behave normally
-      if (e.target.closest('a, button, [role="button"]')) return;
-
+    const wobbleNote = () => {
       note.classList.remove('note-wobble');
-      void note.offsetWidth; // Force synchronous reflow to restart animation on repeated clicks
+      void note.offsetWidth; // Force synchronous reflow so animation restarts every time cursor re-enters
       note.classList.add('note-wobble');
-    }
+    };
 
-    // Support both mouse clicks and mobile taps
-    note.addEventListener('click', triggerNoteWobble);
+    // Trigger on cursor entry (desktop) and touch (mobile)
+    note.addEventListener('pointerenter', wobbleNote);
 
-    note.addEventListener('animationend', function (e) {
+    // Trigger on keyboard focus for accessibility
+    note.addEventListener('focus', wobbleNote);
+
+    // Clean up class on animationend so it doesn't wobble continuously while hovered
+    note.addEventListener('animationend', (e) => {
       if (e.animationName === 'noteWobble') {
         note.classList.remove('note-wobble');
       }
