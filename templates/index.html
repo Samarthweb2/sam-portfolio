@@ -525,6 +525,62 @@
               </div><!-- end .github-chart-content -->
             </div><!-- end .github-paper-card -->
           </div><!-- end .github-card -->
+
+          <!-- Interactive Chalk Loaf-Cat Doodle (Down side of GitHub Card, Arjun chalkboard style) -->
+          <div class="chalk-cat-wrapper flex items-center justify-end gap-2.5 mt-2 mb-0 px-2">
+            <!-- Tiny handwritten chalk message beside it -->
+            <span id="chalk-cat-msg" class="chalk-cat-msg" aria-live="polite">grr... meow!</span>
+
+            <!-- Real interactive button -->
+            <button type="button" id="chalk-cat" class="chalk-cat-btn" aria-label="Pet the chalk cat" title="Pet the chalk cat :)">
+              <svg class="chalk-cat-svg" viewBox="35 24 175 110" width="125" height="78" fill="none" stroke="#F5ECE3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <defs>
+                  <filter id="chalk-loaf-grain" x="-20%" y="-20%" width="140%" height="140%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" seed="42" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G" />
+                  </filter>
+                </defs>
+                <g filter="url(#chalk-loaf-grain)">
+                  <!-- User-supplied body/back & belly path -->
+                  <path class="chalk-cat-body" d="M114 58c30 2 60 14 78 34 12 13 8 31-9 35-24 6-54 6-78 2"></path>
+                  
+                  <!-- Front chest & chin join -->
+                  <path d="M105 129 C 92 128, 80 120, 78 108 C 72 104, 68 98, 64 88 C 58 72, 60 55, 66 45" />
+                  
+                  <!-- Tucked loaf paws fold -->
+                  <path d="M82 118 C 88 123, 98 123, 104 118" stroke-width="1.8" />
+                  
+                  <!-- Ears & Head top (with twitch class on ear) -->
+                  <g class="chalk-cat-ear">
+                    <path d="M66 45 L 68 28 L 78 42 C 84 39, 90 38, 96 38 L 110 32 L 104 46 C 108 48, 112 52, 114 58" />
+                    <!-- Inner ear detail -->
+                    <path d="M72 40 L 71 34 L 76 40" stroke-width="1.4" opacity="0.6" />
+                  </g>
+                  
+                  <!-- Relaxed sleeping eyes (with blink class) -->
+                  <g class="chalk-cat-eyes">
+                    <path class="chalk-cat-eye-left" d="M68 64 Q 74 61 80 65" stroke-width="1.8" />
+                    <path class="chalk-cat-eye-right" d="M88 63 Q 94 60 100 64" stroke-width="1.8" />
+                  </g>
+                  
+                  <!-- Nose & Mouth -->
+                  <polygon points="82,72 86,72 84,75" fill="#F5ECE3" stroke="none" />
+                  <path d="M84 75 Q 80 79 76 77" stroke-width="1.6" />
+                  <path d="M84 75 Q 88 79 92 77" stroke-width="1.6" />
+                  
+                  <!-- Whiskers -->
+                  <line x1="62" y1="72" x2="42" y2="69" stroke-width="1.2" opacity="0.75" />
+                  <line x1="61" y1="76" x2="40" y2="77" stroke-width="1.2" opacity="0.75" />
+                  <line x1="63" y1="80" x2="44" y2="85" stroke-width="1.2" opacity="0.75" />
+                  <line x1="98" y1="71" x2="116" y2="71" stroke-width="1.2" opacity="0.75" />
+                  <line x1="97" y1="76" x2="115" y2="78" stroke-width="1.2" opacity="0.75" />
+
+                  <!-- Tail (with wiggle class) -->
+                  <path class="chalk-cat-tail" d="M183 124 C 196 122, 204 112, 202 98 C 200 86, 190 84, 184 90" stroke-width="2.4" />
+                </g>
+              </svg>
+            </button>
+          </div>
         </div><!-- end .hero-content -->
   </div><!-- end .hero-grid -->
 </section>

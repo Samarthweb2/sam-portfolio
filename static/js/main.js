@@ -226,6 +226,46 @@
     });
   }
 
+  // ─── Interactive Chalk Loaf-Cat Doodle (Pet the Cat) ───
+  const chalkCatBtn = document.getElementById('chalk-cat');
+  const chalkCatMsg = document.getElementById('chalk-cat-msg');
+
+  if (chalkCatBtn) {
+    const petTheCat = function (e) {
+      if (e && e.type === 'click') {
+        // Normal click
+      }
+
+      // Re-trigger playful cat response using class removal, forced reflow, and re-adding
+      chalkCatBtn.classList.remove('cat-petting');
+      void chalkCatBtn.offsetWidth; // forced reflow
+      chalkCatBtn.classList.add('cat-petting');
+
+      // Re-trigger handwritten chalk message: grr... meow!
+      if (chalkCatMsg) {
+        chalkCatMsg.classList.remove('active');
+        void chalkCatMsg.offsetWidth; // forced reflow
+        chalkCatMsg.classList.add('active');
+      }
+    };
+
+    chalkCatBtn.addEventListener('click', petTheCat);
+
+    chalkCatBtn.addEventListener('animationend', function (e) {
+      if (e.animationName === 'chalkCatBounce') {
+        chalkCatBtn.classList.remove('cat-petting');
+      }
+    });
+
+    if (chalkCatMsg) {
+      chalkCatMsg.addEventListener('animationend', function (e) {
+        if (e.animationName === 'chalkCatMsgFade') {
+          chalkCatMsg.classList.remove('active');
+        }
+      });
+    }
+  }
+
   // ─── Current Year in Footer ───
   const yearEl = document.getElementById('current-year');
   if (yearEl) {
