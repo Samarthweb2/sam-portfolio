@@ -37,4 +37,5 @@ The application runs on `http://localhost:5000`.
 
 - Email: samarthsrishishwar34@gmail.com
 - GitHub: [SamarthWeb2](https://github.com/SamarthWeb2)
-- LinkedIn: [Samarth Rishishwar](https://www.linkedin.com/in/samarth-rishishwar-b26a6328a/)
+- LinkedIn: [Samarth Sharma](https://www.linkedin.com/in/samarth-sharma22)
+- X / Twitter: [@samarthsharma44](https://x.com/samarthsharma44)
