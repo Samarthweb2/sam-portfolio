@@ -1254,93 +1254,217 @@ body {
 @media (min-width: 1024px) {
   .clothesline-cards-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     align-items: start;
+    justify-items: center;
     gap: 1.35rem;
     overflow-x: visible;
-    padding-bottom: 1rem;
+    padding-top: 1.25rem;
+    padding-bottom: 2.25rem;
   }
 }
 
-/* Hanging Polaroid Paper Card — Classic Photographic Print Shape */
+/* Hanging Playful Pinned-Photo Paper Cards (Compact Portrait/Square-like) */
 .hanging-card {
+  --card-tilt: 0deg;
+  --card-drop: 0px;
   position: relative;
-  flex: 0 0 270px;
-  width: 270px;
-  height: 385px;
+  flex: 0 0 215px;
+  width: 100%;
+  max-width: 230px;
+  background: #fbf8f2;
+  border: 1px solid rgba(190, 172, 148, 0.32);
+  border-radius: 6px;
+  padding: 8px 8px 10px 8px;
+  box-shadow: 0 8px 18px -3px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.18);
   display: flex;
   flex-direction: column;
-  scroll-snap-align: center;
-  background: #faf7f2;
-  border: 1px solid rgba(160, 140, 120, 0.3);
-  border-radius: 4px;
-  padding: 10px 10px 12px 10px;
-  box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.45), 0 3px 8px rgba(0, 0, 0, 0.2);
   transform-origin: 50% 0%;
+  transform: rotate(var(--card-tilt)) translateY(var(--card-drop));
   transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  scroll-snap-align: center;
   z-index: 5;
 }
 
+/* Hover: Preserve natural tilt and lift slightly without becoming straight */
 .hanging-card:hover {
-  transform: rotate(0deg) translateY(-5px) scale(1.02) !important;
-  box-shadow: 0 18px 36px -4px rgba(0, 0, 0, 0.6), 0 6px 14px rgba(0, 0, 0, 0.3);
+  transform: rotate(var(--card-tilt)) translateY(calc(var(--card-drop) - 8px)) scale(1.02);
+  box-shadow: 0 16px 32px -4px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.24);
   z-index: 25;
 }
 
-/* Card Media Frame (Fixed uniform height across all cards) */
-.hanging-card .card-media-frame {
+/* Natural Card Tilts & Staggered Hanging Heights */
+.hanging-card-1 {
+  --card-tilt: -3deg;
+  --card-drop: 0px;
+}
+
+.hanging-card-2 {
+  --card-tilt: 2deg;
+  --card-drop: 14px;
+}
+
+.hanging-card-3 {
+  --card-tilt: -1deg;
+  --card-drop: 4px;
+}
+
+.hanging-card-4 {
+  --card-tilt: 3deg;
+  --card-drop: 18px;
+}
+
+/* Square Project Image Area (aspect-ratio: 1 / 1) with Coloured Paper Mat Behind It */
+.card-mat-frame {
   width: 100%;
-  height: 175px;
-  border-radius: 2px;
+  padding: 6px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mat-card-1 {
+  background: #f5eedc; /* Warm amber/honey cream mat */
+}
+
+.mat-card-2 {
+  background: #e6ecf4; /* Soft chalkboard slate mist mat */
+}
+
+.mat-card-3 {
+  background: #fbe6e3; /* Warm terracotta rose mat */
+}
+
+.mat-card-4 {
+  background: #e5eee8; /* Subtle sage chalkboard mat */
+}
+
+.card-media-square {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 3px;
   overflow: hidden;
   position: relative;
-  flex-shrink: 0;
   background: #1c1917;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* Card Body (Takes remaining height and pushes links to bottom) */
+.card-square-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hanging-card:hover .card-square-img {
+  transform: scale(1.04);
+}
+
+/* Card Body Content */
 .hanging-card .card-body {
   display: flex;
   flex-direction: column;
   flex: 1;
   min-height: 0;
-  padding-top: 8px;
+  padding-top: 1px;
 }
 
+/* Short handwritten category label below the image */
+.card-category-label {
+  font-family: 'Caveat', cursive;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #E35342;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  display: block;
+}
+
+/* Bold title */
+.card-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1c1917;
+  line-height: 1.25;
+  margin-top: 2px;
+  margin-bottom: 3px;
+}
+
+/* Maximum two short description lines */
+.card-desc {
+  font-size: 0.72rem;
+  color: #57534e;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 6px;
+}
+
+/* Compact technology / link buttons at bottom */
 .hanging-card .card-links {
   margin-top: auto;
-  padding-top: 8px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 6px;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Natural Card Tilts */
-.hanging-card-1 {
-  transform: rotate(-1.5deg);
+.card-mini-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #dcd3c8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #44403c;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.hanging-card-2 {
-  transform: rotate(1.2deg);
-}
-
-.hanging-card-3 {
-  transform: rotate(-0.8deg);
-}
-
-.hanging-card-4 {
-  transform: rotate(1.5deg);
+.card-mini-btn:hover {
+  background: #f5ede2;
+  color: #1c1917;
+  border-color: #c8b9a6;
+  transform: translateY(-1px);
 }
 
 /* Clothespin Wooden Clip */
 .card-clothespin {
   position: absolute;
-  top: -15px;
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
-  height: 32px;
+  width: 13px;
+  height: 30px;
   z-index: 15;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+  pointer-events: none;
+}
+
+/* Corner Sticker Badge */
+.card-corner-sticker {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #e7dfd5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  z-index: 12;
   pointer-events: none;
 }
 
