@@ -4,21 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sam — AI Engineer & Software Engineer</title>
-  <meta name="description" content="Final-year B.Tech CS student specializing in ML and AI engineering, Python, FastAPI, and data engineering." />
+  <meta name="description" content="B.Tech CS student at ITM, Gwalior specializing in ML and AI engineering, Python, FastAPI, and data engineering." />
   <meta name="author" content="Sam" />
   <meta name="keywords" content="Sam, AI Engineer, Software Engineer, Python, FastAPI, ML, Data Analytics, ETL" />
   <meta name="robots" content="index, follow" />
 
   <!-- OpenGraph -->
   <meta property="og:title" content="Sam — AI Engineer" />
-  <meta property="og:description" content="Final-year B.Tech CS student specializing in ML and AI engineering." />
+  <meta property="og:description" content="B.Tech CS student at ITM, Gwalior specializing in ML and AI engineering." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sam — AI Engineer" />
-  <meta name="twitter:description" content="Final-year B.Tech CS student specializing in ML and AI engineering." />
+  <meta name="twitter:description" content="B.Tech CS student at ITM, Gwalior specializing in ML and AI engineering." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -236,7 +236,7 @@
   <!-- ============================================================
        MAIN CONTENT SHELL (Slim, Minimalistic Breadth like Arjun's site)
        ============================================================ -->
-  <div id="site-shell" class="relative mx-auto min-h-screen w-full max-w-[760px] px-4 pb-12 sm:px-6 sm:pb-16">
+  <div id="site-shell" class="relative mx-auto min-h-screen w-full max-w-[1160px] px-4 pb-12 sm:px-6 sm:pb-16">
 
     <!-- Floating stickers (Arjun's style) -->
     <div class="pointer-events-none absolute inset-0 z-30 hidden xl:block" aria-hidden="true">
@@ -286,7 +286,8 @@
         </svg>
 
         <nav aria-label="Primary" class="nav-inner">
-          <a href="#profile" class="nav-link active" data-section="profile" style="--nav-link-delay: 220ms">
+          <!-- About (Active by default with red scribble underline) -->
+          <a href="#profile" class="nav-link active" data-section="profile" style="--nav-link-delay: 200ms">
             <span class="relative z-10">About</span>
             <svg viewBox="0 0 100 14" preserveAspectRatio="none" class="scribble-underline" aria-hidden="true">
               <defs>
@@ -300,11 +301,53 @@
                     filter="url(#scribble-chalk)" opacity="0.85" />
             </svg>
           </a>
-          <a href="https://github.com/SamarthWeb2" target="_blank" rel="noopener noreferrer" class="nav-link" style="--nav-link-delay: 320ms">
-            <span class="relative z-10">GitHub</span>
+
+          <!-- Lately -->
+          <a href="#lately" class="nav-link" data-section="lately" style="--nav-link-delay: 280ms">
+            <span class="relative z-10">Lately</span>
+            <svg viewBox="0 0 100 14" preserveAspectRatio="none" class="scribble-underline" aria-hidden="true">
+              <path d="M 3 8 C 16 5.5, 32 10.5, 48 7.5 C 64 4.5, 80 9.5, 97 6.5" pathLength="100"
+                    fill="none" stroke="#E35342" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"
+                    filter="url(#scribble-chalk)" opacity="0.85" />
+            </svg>
           </a>
-          <a href="mailto:samarthsrishishwar34@gmail.com" class="nav-link" style="--nav-link-delay: 400ms">
-            <span class="relative z-10">Contact</span>
+
+          <!-- Education -->
+          <a href="#education" class="nav-link" data-section="education" style="--nav-link-delay: 360ms">
+            <span class="relative z-10">Education</span>
+            <svg viewBox="0 0 100 14" preserveAspectRatio="none" class="scribble-underline" aria-hidden="true">
+              <path d="M 3 8 C 16 5.5, 32 10.5, 48 7.5 C 64 4.5, 80 9.5, 97 6.5" pathLength="100"
+                    fill="none" stroke="#E35342" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"
+                    filter="url(#scribble-chalk)" opacity="0.85" />
+            </svg>
+          </a>
+
+          <!-- Projects -->
+          <a href="#projects" class="nav-link" data-section="projects" style="--nav-link-delay: 420ms">
+            <span class="relative z-10">Projects</span>
+            <svg viewBox="0 0 100 14" preserveAspectRatio="none" class="scribble-underline" aria-hidden="true">
+              <path d="M 3 8 C 16 5.5, 32 10.5, 48 7.5 C 64 4.5, 80 9.5, 97 6.5" pathLength="100"
+                    fill="none" stroke="#E35342" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"
+                    filter="url(#scribble-chalk)" opacity="0.85" />
+            </svg>
+          </a>
+
+          <!-- connect (Red chalk oval pill button) -->
+          <a href="mailto:samarthsrishishwar34@gmail.com" class="nav-connect-pill" aria-label="Connect with Sam" style="--nav-link-delay: 480ms">
+            <svg class="connect-pill-bg" viewBox="0 0 96 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <filter id="chalk-pill-wobble" x="-20%" y="-20%" width="140%" height="140%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.08 0.15" numOctaves="3" seed="32" result="grain" />
+                  <feDisplacementMap in="SourceGraphic" in2="grain" scale="2.2" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+              </defs>
+              <!-- Main red chalk solid fill with chalk roughness -->
+              <ellipse cx="48" cy="17" rx="42" ry="13.5" fill="#E35342" filter="url(#chalk-pill-wobble)" />
+              <!-- Organic chalk sketching hatch rings around contour -->
+              <ellipse cx="48" cy="17" rx="43" ry="14" stroke="#C23626" stroke-width="1.2" opacity="0.6" fill="none" />
+              <path d="M 10 16 C 12 7, 34 5, 52 5 C 70 5, 86 8, 86 16 C 86 24, 68 28, 48 28 C 28 28, 10 23, 10 16" stroke="#FFA394" stroke-width="0.8" opacity="0.35" fill="none" />
+            </svg>
+            <span class="connect-pill-text">connect</span>
           </a>
         </nav>
       </div>
@@ -313,10 +356,10 @@
 
     <!-- ──────────────── HERO SECTION (ARJUN'S EXACT PATTERN) ──────────────── -->
     <!-- Photo on Left -> Bio on Right/Top -> Yellow Card -> GitHub Activity below -->
-    <section id="profile" class="pt-4 pb-10 sm:pt-6 sm:pb-16">
+    <section id="profile" class="hero-wide pt-4 pb-10 sm:pt-6 sm:pb-16">
       
-      <!-- Top Row: Photo + Name + Social Icons -->
-      <div class="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 mb-6">
+      <!-- Desktop Grid: 180px Polaroid + Fluid Hero Content (850-900px wide) -->
+      <div class="hero-grid">
         
         <!-- LEFT: Polaroid Frame with Samarth's Photo + Red Pushpin -->
         <div class="polaroid-wrapper shrink-0 animate-hero-name">
@@ -339,13 +382,13 @@
           </div>
         </div>
 
-        <!-- RIGHT: Name, Tagline & Social Badges -->
-        <div class="flex-1 w-full text-center md:text-left pt-1">
+        <!-- RIGHT: hero-content containing Name, Headline, Socials, Yellow Note, and GitHub Card -->
+        <div class="hero-content text-left pt-1">
           
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-1.5">
             <!-- Name -->
             <div>
-              <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-shadow-chalk tracking-tight text-on-mat leading-tight">
+              <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-shadow-chalk tracking-tight text-on-mat leading-tight">
                 Sam
               </h1>
             </div>
@@ -373,7 +416,7 @@
 
           <!-- Headline in Red Color (Arjun's exact style - delicate & compact) -->
           <p class="font-hand text-[15px] sm:text-[17px] text-[#E35342] leading-snug mb-3.5 tracking-wide">
-            building is my coping mechanism · SLAB-MITS Hackathon Winner · AI engineer
+            building is my coping mechanism · SLAB Hackathon Winner · AI engineer
           </p>
 
           <!-- ============================================================
@@ -384,7 +427,7 @@
             <div class="bio-bullet">
               <span class="bio-dot"></span>
               <p>
-                Final-year B.Tech Computer Science student.
+                B.Tech Computer Science student at ITM, Gwalior.
               </p>
             </div>
 
@@ -411,82 +454,564 @@
                 Hackathons & Coding Contests participant and <span class="highlight">active builder</span>.
               </p>
             </div>
-          </div>
+          </div><!-- end #yellow-sticky-note -->
 
-        </div>
-      </div>
-
-      <!-- ============================================================
-           2. GITHUB ACTIVITY CARD (Ivory Contribution Paper Sheet Pinned Below)
-           ============================================================ -->
-      <div class="relative w-full mt-7">
-        <!-- Masking tape strips holding card to chalkboard -->
-        <div class="github-tape github-tape-left" aria-hidden="true"></div>
-        <div class="github-tape github-tape-right" aria-hidden="true"></div>
-
-        <div class="github-card">
-          <!-- Card Header -->
-          <div class="flex items-center justify-between pb-2.5 border-b border-stone-200/80 mb-3">
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-semibold text-[#1C1917] tracking-tight">GitHub activity</span>
-            </div>
-            <a href="https://github.com/SamarthWeb2" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-1">
-              <span>@SamarthWeb2</span>
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            </a>
-          </div>
-
-          <!-- Heatmap Container -->
-          <div class="github-grid-wrapper py-1">
-            <div class="min-w-[620px]">
-              <!-- Month labels header -->
-              <div class="grid grid-cols-12 text-[10px] text-stone-400 font-sans pl-7 pr-2 mb-1.5">
-                <span>Sep</span>
-                <span>Oct</span>
-                <span>Nov</span>
-                <span>Dec</span>
-                <span>Jan</span>
-                <span>Feb</span>
-                <span>Mar</span>
-                <span>Apr</span>
-                <span>May</span>
-                <span>Jun</span>
-                <span>Jul</span>
-                <span>Aug</span>
-              </div>
-
-              <!-- Matrix with Days on left -->
-              <div class="flex items-start gap-1.5">
-                <!-- Day labels -->
-                <div class="flex flex-col justify-between text-[9px] text-stone-400 font-sans h-[82px] py-1 shrink-0 w-6">
-                  <span>Mon</span>
-                  <span>Wed</span>
-                  <span>Fri</span>
+          <!-- ============================================================
+               2. GITHUB ACTIVITY CARD (Exact 87% Desktop Width, Left-Aligned with Tape Strips)
+               ============================================================ -->
+          <div class="github-card">
+            <div class="github-paper-card">
+              <div class="github-chart-content max-w-full w-full min-w-0">
+                <!-- Card Header -->
+                <div class="mb-2 flex items-baseline justify-between gap-3 border-b border-stone-200/80 pb-1.5">
+                  <p class="github-title text-xs tracking-tight">GitHub activity</p>
+                  <a href="https://github.com/SamarthWeb2" target="_blank" rel="noopener noreferrer" class="github-handle text-xs font-mono hover:text-[var(--color-accent)] transition-colors flex items-center gap-1">
+                    <span>@SamarthWeb2</span>
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  </a>
                 </div>
 
-                <!-- 52 columns x 7 rows heatmap grid (generated dynamically or SVG) -->
-                <div id="github-heatmap-grid" class="flex gap-[2.5px]"><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-08-31" aria-label="0 contributions on 2025-08-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-01" aria-label="0 contributions on 2025-09-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-02" aria-label="0 contributions on 2025-09-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-03" aria-label="0 contributions on 2025-09-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-04" aria-label="0 contributions on 2025-09-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-05" aria-label="0 contributions on 2025-09-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-06" aria-label="0 contributions on 2025-09-06"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-09-07" aria-label="0 contributions on 2025-09-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-08" aria-label="0 contributions on 2025-09-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-09" aria-label="0 contributions on 2025-09-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-10" aria-label="0 contributions on 2025-09-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-11" aria-label="0 contributions on 2025-09-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-12" aria-label="0 contributions on 2025-09-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-13" aria-label="0 contributions on 2025-09-13"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-09-14" aria-label="0 contributions on 2025-09-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-15" aria-label="0 contributions on 2025-09-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-16" aria-label="0 contributions on 2025-09-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-17" aria-label="0 contributions on 2025-09-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-18" aria-label="0 contributions on 2025-09-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-19" aria-label="0 contributions on 2025-09-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-20" aria-label="0 contributions on 2025-09-20"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-09-21" aria-label="0 contributions on 2025-09-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-22" aria-label="0 contributions on 2025-09-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-23" aria-label="0 contributions on 2025-09-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-24" aria-label="0 contributions on 2025-09-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-25" aria-label="0 contributions on 2025-09-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-26" aria-label="0 contributions on 2025-09-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-27" aria-label="0 contributions on 2025-09-27"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-09-28" aria-label="0 contributions on 2025-09-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-29" aria-label="0 contributions on 2025-09-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-30" aria-label="0 contributions on 2025-09-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-01" aria-label="0 contributions on 2025-10-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-02" aria-label="0 contributions on 2025-10-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-03" aria-label="0 contributions on 2025-10-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-04" aria-label="0 contributions on 2025-10-04"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-10-05" aria-label="0 contributions on 2025-10-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-06" aria-label="0 contributions on 2025-10-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-07" aria-label="0 contributions on 2025-10-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-08" aria-label="0 contributions on 2025-10-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-09" aria-label="0 contributions on 2025-10-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-10" aria-label="0 contributions on 2025-10-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-11" aria-label="0 contributions on 2025-10-11"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-10-12" aria-label="0 contributions on 2025-10-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-13" aria-label="0 contributions on 2025-10-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-14" aria-label="0 contributions on 2025-10-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-15" aria-label="0 contributions on 2025-10-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-16" aria-label="0 contributions on 2025-10-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-17" aria-label="0 contributions on 2025-10-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-18" aria-label="0 contributions on 2025-10-18"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-10-19" aria-label="0 contributions on 2025-10-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-20" aria-label="0 contributions on 2025-10-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-21" aria-label="0 contributions on 2025-10-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-22" aria-label="0 contributions on 2025-10-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-23" aria-label="0 contributions on 2025-10-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-24" aria-label="0 contributions on 2025-10-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-25" aria-label="0 contributions on 2025-10-25"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-10-26" aria-label="0 contributions on 2025-10-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-27" aria-label="0 contributions on 2025-10-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-28" aria-label="0 contributions on 2025-10-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-29" aria-label="0 contributions on 2025-10-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-30" aria-label="0 contributions on 2025-10-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-31" aria-label="0 contributions on 2025-10-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-01" aria-label="0 contributions on 2025-11-01"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-11-02" aria-label="0 contributions on 2025-11-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-03" aria-label="0 contributions on 2025-11-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-04" aria-label="0 contributions on 2025-11-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-05" aria-label="0 contributions on 2025-11-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-06" aria-label="0 contributions on 2025-11-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-07" aria-label="0 contributions on 2025-11-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-08" aria-label="0 contributions on 2025-11-08"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-11-09" aria-label="0 contributions on 2025-11-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-10" aria-label="0 contributions on 2025-11-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-11" aria-label="0 contributions on 2025-11-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-12" aria-label="0 contributions on 2025-11-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-13" aria-label="0 contributions on 2025-11-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-14" aria-label="0 contributions on 2025-11-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-15" aria-label="0 contributions on 2025-11-15"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-11-16" aria-label="0 contributions on 2025-11-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-17" aria-label="0 contributions on 2025-11-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-18" aria-label="0 contributions on 2025-11-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-19" aria-label="0 contributions on 2025-11-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-20" aria-label="0 contributions on 2025-11-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-21" aria-label="0 contributions on 2025-11-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-22" aria-label="0 contributions on 2025-11-22"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-11-23" aria-label="0 contributions on 2025-11-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-24" aria-label="0 contributions on 2025-11-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-25" aria-label="0 contributions on 2025-11-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-26" aria-label="0 contributions on 2025-11-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-27" aria-label="0 contributions on 2025-11-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-28" aria-label="0 contributions on 2025-11-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-29" aria-label="0 contributions on 2025-11-29"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-11-30" aria-label="0 contributions on 2025-11-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-01" aria-label="0 contributions on 2025-12-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-02" aria-label="0 contributions on 2025-12-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-03" aria-label="0 contributions on 2025-12-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-04" aria-label="0 contributions on 2025-12-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-05" aria-label="0 contributions on 2025-12-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-06" aria-label="0 contributions on 2025-12-06"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-12-07" aria-label="0 contributions on 2025-12-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-08" aria-label="0 contributions on 2025-12-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-09" aria-label="0 contributions on 2025-12-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-10" aria-label="0 contributions on 2025-12-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-11" aria-label="0 contributions on 2025-12-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-12" aria-label="0 contributions on 2025-12-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-13" aria-label="0 contributions on 2025-12-13"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-12-14" aria-label="0 contributions on 2025-12-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-15" aria-label="0 contributions on 2025-12-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-16" aria-label="0 contributions on 2025-12-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-17" aria-label="0 contributions on 2025-12-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-18" aria-label="0 contributions on 2025-12-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-19" aria-label="0 contributions on 2025-12-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-20" aria-label="0 contributions on 2025-12-20"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-12-21" aria-label="0 contributions on 2025-12-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-22" aria-label="0 contributions on 2025-12-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-23" aria-label="0 contributions on 2025-12-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-24" aria-label="0 contributions on 2025-12-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-25" aria-label="0 contributions on 2025-12-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-26" aria-label="0 contributions on 2025-12-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-27" aria-label="0 contributions on 2025-12-27"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-12-28" aria-label="0 contributions on 2025-12-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-29" aria-label="0 contributions on 2025-12-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-30" aria-label="0 contributions on 2025-12-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-31" aria-label="0 contributions on 2025-12-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-01" aria-label="0 contributions on 2026-01-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-02" aria-label="0 contributions on 2026-01-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-03" aria-label="0 contributions on 2026-01-03"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-01-04" aria-label="0 contributions on 2026-01-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-05" aria-label="0 contributions on 2026-01-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-06" aria-label="0 contributions on 2026-01-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-07" aria-label="0 contributions on 2026-01-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-08" aria-label="0 contributions on 2026-01-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-09" aria-label="0 contributions on 2026-01-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-10" aria-label="0 contributions on 2026-01-10"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-01-11" aria-label="0 contributions on 2026-01-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-12" aria-label="0 contributions on 2026-01-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-13" aria-label="0 contributions on 2026-01-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-14" aria-label="0 contributions on 2026-01-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-15" aria-label="0 contributions on 2026-01-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-16" aria-label="0 contributions on 2026-01-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-17" aria-label="0 contributions on 2026-01-17"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-01-18" aria-label="0 contributions on 2026-01-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-19" aria-label="0 contributions on 2026-01-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-20" aria-label="0 contributions on 2026-01-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-21" aria-label="0 contributions on 2026-01-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-22" aria-label="0 contributions on 2026-01-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-23" aria-label="0 contributions on 2026-01-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-24" aria-label="0 contributions on 2026-01-24"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-01-25" aria-label="0 contributions on 2026-01-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-26" aria-label="0 contributions on 2026-01-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-27" aria-label="0 contributions on 2026-01-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-28" aria-label="0 contributions on 2026-01-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-29" aria-label="0 contributions on 2026-01-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-30" aria-label="0 contributions on 2026-01-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-31" aria-label="0 contributions on 2026-01-31"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-02-01" aria-label="0 contributions on 2026-02-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-02" aria-label="0 contributions on 2026-02-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-03" aria-label="0 contributions on 2026-02-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-04" aria-label="0 contributions on 2026-02-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-05" aria-label="0 contributions on 2026-02-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-06" aria-label="0 contributions on 2026-02-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-07" aria-label="0 contributions on 2026-02-07"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-02-08" aria-label="0 contributions on 2026-02-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-09" aria-label="0 contributions on 2026-02-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-10" aria-label="0 contributions on 2026-02-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-11" aria-label="0 contributions on 2026-02-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-12" aria-label="0 contributions on 2026-02-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-13" aria-label="0 contributions on 2026-02-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-14" aria-label="0 contributions on 2026-02-14"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-02-15" aria-label="0 contributions on 2026-02-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-16" aria-label="0 contributions on 2026-02-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-17" aria-label="0 contributions on 2026-02-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-18" aria-label="0 contributions on 2026-02-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-19" aria-label="0 contributions on 2026-02-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-20" aria-label="0 contributions on 2026-02-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-21" aria-label="0 contributions on 2026-02-21"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-02-22" aria-label="0 contributions on 2026-02-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-23" aria-label="0 contributions on 2026-02-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-24" aria-label="0 contributions on 2026-02-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-25" aria-label="0 contributions on 2026-02-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-26" aria-label="0 contributions on 2026-02-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-27" aria-label="0 contributions on 2026-02-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-28" aria-label="0 contributions on 2026-02-28"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-03-01" aria-label="0 contributions on 2026-03-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-02" aria-label="0 contributions on 2026-03-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-03" aria-label="0 contributions on 2026-03-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-04" aria-label="0 contributions on 2026-03-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-05" aria-label="0 contributions on 2026-03-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-06" aria-label="0 contributions on 2026-03-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-07" aria-label="0 contributions on 2026-03-07"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-03-08" aria-label="0 contributions on 2026-03-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-09" aria-label="0 contributions on 2026-03-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-10" aria-label="0 contributions on 2026-03-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-11" aria-label="0 contributions on 2026-03-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-12" aria-label="0 contributions on 2026-03-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-13" aria-label="0 contributions on 2026-03-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-14" aria-label="0 contributions on 2026-03-14"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-03-15" aria-label="0 contributions on 2026-03-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-16" aria-label="0 contributions on 2026-03-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-17" aria-label="0 contributions on 2026-03-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-18" aria-label="0 contributions on 2026-03-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-19" aria-label="0 contributions on 2026-03-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-20" aria-label="0 contributions on 2026-03-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-21" aria-label="0 contributions on 2026-03-21"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-03-22" aria-label="0 contributions on 2026-03-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-23" aria-label="0 contributions on 2026-03-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-24" aria-label="0 contributions on 2026-03-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-25" aria-label="0 contributions on 2026-03-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-26" aria-label="0 contributions on 2026-03-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-27" aria-label="0 contributions on 2026-03-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-28" aria-label="0 contributions on 2026-03-28"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-03-29" aria-label="0 contributions on 2026-03-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-30" aria-label="0 contributions on 2026-03-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-31" aria-label="0 contributions on 2026-03-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-01" aria-label="0 contributions on 2026-04-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-02" aria-label="0 contributions on 2026-04-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-03" aria-label="0 contributions on 2026-04-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-04" aria-label="0 contributions on 2026-04-04"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-04-05" aria-label="0 contributions on 2026-04-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-06" aria-label="0 contributions on 2026-04-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-07" aria-label="0 contributions on 2026-04-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-08" aria-label="0 contributions on 2026-04-08"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-04-09" aria-label="1 contribution on 2026-04-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-10" aria-label="0 contributions on 2026-04-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-11" aria-label="0 contributions on 2026-04-11"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-04-12" aria-label="0 contributions on 2026-04-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-13" aria-label="0 contributions on 2026-04-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-14" aria-label="0 contributions on 2026-04-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-15" aria-label="0 contributions on 2026-04-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-16" aria-label="0 contributions on 2026-04-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-17" aria-label="0 contributions on 2026-04-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-18" aria-label="0 contributions on 2026-04-18"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-04-19" aria-label="0 contributions on 2026-04-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-20" aria-label="0 contributions on 2026-04-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-21" aria-label="0 contributions on 2026-04-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-22" aria-label="0 contributions on 2026-04-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-23" aria-label="0 contributions on 2026-04-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-24" aria-label="0 contributions on 2026-04-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-25" aria-label="0 contributions on 2026-04-25"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-04-26" aria-label="0 contributions on 2026-04-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-27" aria-label="0 contributions on 2026-04-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-28" aria-label="0 contributions on 2026-04-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-29" aria-label="0 contributions on 2026-04-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-30" aria-label="0 contributions on 2026-04-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-01" aria-label="0 contributions on 2026-05-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-02" aria-label="0 contributions on 2026-05-02"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l2" title="2 contributions on 2026-05-03" aria-label="2 contributions on 2026-05-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-04" aria-label="0 contributions on 2026-05-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-05" aria-label="0 contributions on 2026-05-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-06" aria-label="0 contributions on 2026-05-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-07" aria-label="0 contributions on 2026-05-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-08" aria-label="0 contributions on 2026-05-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-09" aria-label="0 contributions on 2026-05-09"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-05-10" aria-label="0 contributions on 2026-05-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-11" aria-label="0 contributions on 2026-05-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-12" aria-label="0 contributions on 2026-05-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-13" aria-label="0 contributions on 2026-05-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-14" aria-label="0 contributions on 2026-05-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-15" aria-label="0 contributions on 2026-05-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-16" aria-label="0 contributions on 2026-05-16"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-05-17" aria-label="0 contributions on 2026-05-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-18" aria-label="0 contributions on 2026-05-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-19" aria-label="0 contributions on 2026-05-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-20" aria-label="0 contributions on 2026-05-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-21" aria-label="0 contributions on 2026-05-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-22" aria-label="0 contributions on 2026-05-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-23" aria-label="0 contributions on 2026-05-23"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l3" title="3 contributions on 2026-05-24" aria-label="3 contributions on 2026-05-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-25" aria-label="0 contributions on 2026-05-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-26" aria-label="0 contributions on 2026-05-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-27" aria-label="0 contributions on 2026-05-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-28" aria-label="0 contributions on 2026-05-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-29" aria-label="0 contributions on 2026-05-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-30" aria-label="0 contributions on 2026-05-30"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-05-31" aria-label="0 contributions on 2026-05-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-01" aria-label="0 contributions on 2026-06-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-02" aria-label="0 contributions on 2026-06-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-03" aria-label="0 contributions on 2026-06-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-04" aria-label="0 contributions on 2026-06-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-05" aria-label="0 contributions on 2026-06-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-06" aria-label="0 contributions on 2026-06-06"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-06-07" aria-label="0 contributions on 2026-06-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-08" aria-label="0 contributions on 2026-06-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-09" aria-label="0 contributions on 2026-06-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-10" aria-label="0 contributions on 2026-06-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-11" aria-label="0 contributions on 2026-06-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-12" aria-label="0 contributions on 2026-06-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-13" aria-label="0 contributions on 2026-06-13"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-06-14" aria-label="0 contributions on 2026-06-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-15" aria-label="0 contributions on 2026-06-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-16" aria-label="0 contributions on 2026-06-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-17" aria-label="0 contributions on 2026-06-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-18" aria-label="0 contributions on 2026-06-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-19" aria-label="0 contributions on 2026-06-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-20" aria-label="0 contributions on 2026-06-20"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-06-21" aria-label="0 contributions on 2026-06-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-22" aria-label="0 contributions on 2026-06-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-23" aria-label="0 contributions on 2026-06-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-24" aria-label="0 contributions on 2026-06-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-25" aria-label="0 contributions on 2026-06-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-26" aria-label="0 contributions on 2026-06-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-27" aria-label="0 contributions on 2026-06-27"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-06-28" aria-label="0 contributions on 2026-06-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-29" aria-label="0 contributions on 2026-06-29"></div><div class="gh-cell gh-l2" title="2 contributions on 2026-06-30" aria-label="2 contributions on 2026-06-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-01" aria-label="0 contributions on 2026-07-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-02" aria-label="0 contributions on 2026-07-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-03" aria-label="0 contributions on 2026-07-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-04" aria-label="0 contributions on 2026-07-04"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l1" title="1 contribution on 2026-07-05" aria-label="1 contribution on 2026-07-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-06" aria-label="0 contributions on 2026-07-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-07" aria-label="0 contributions on 2026-07-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-08" aria-label="0 contributions on 2026-07-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-09" aria-label="0 contributions on 2026-07-09"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-07-10" aria-label="1 contribution on 2026-07-10"></div><div class="gh-cell gh-l3" title="3 contributions on 2026-07-11" aria-label="3 contributions on 2026-07-11"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l4" title="4 contributions on 2026-07-12" aria-label="4 contributions on 2026-07-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-13" aria-label="0 contributions on 2026-07-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-14" aria-label="0 contributions on 2026-07-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-15" aria-label="0 contributions on 2026-07-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-16" aria-label="0 contributions on 2026-07-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-17" aria-label="0 contributions on 2026-07-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-18" aria-label="0 contributions on 2026-07-18"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-07-19" aria-label="0 contributions on 2026-07-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-20" aria-label="0 contributions on 2026-07-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-21" aria-label="0 contributions on 2026-07-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-22" aria-label="0 contributions on 2026-07-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-23" aria-label="0 contributions on 2026-07-23"></div><div class="gh-cell gh-l3" title="3 contributions on 2026-07-24" aria-label="3 contributions on 2026-07-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-25" aria-label="0 contributions on 2026-07-25"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-07-26" aria-label="0 contributions on 2026-07-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-27" aria-label="0 contributions on 2026-07-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-28" aria-label="0 contributions on 2026-07-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-29" aria-label="0 contributions on 2026-07-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-30" aria-label="0 contributions on 2026-07-30"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-07-31" aria-label="1 contribution on 2026-07-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-01" aria-label="0 contributions on 2026-08-01"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-08-02" aria-label="0 contributions on 2026-08-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-03" aria-label="0 contributions on 2026-08-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-04" aria-label="0 contributions on 2026-08-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-05" aria-label="0 contributions on 2026-08-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-06" aria-label="0 contributions on 2026-08-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-07" aria-label="0 contributions on 2026-08-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-08" aria-label="0 contributions on 2026-08-08"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-08-09" aria-label="0 contributions on 2026-08-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-10" aria-label="0 contributions on 2026-08-10"></div><div class="gh-cell gh-l4" title="4 contributions on 2026-08-11" aria-label="4 contributions on 2026-08-11"></div><div class="gh-cell gh-l4" title="4 contributions on 2026-08-12" aria-label="4 contributions on 2026-08-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-13" aria-label="0 contributions on 2026-08-13"></div><div class="gh-cell gh-l2" title="2 contributions on 2026-08-14" aria-label="2 contributions on 2026-08-14"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-08-15" aria-label="1 contribution on 2026-08-15"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-08-16" aria-label="0 contributions on 2026-08-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-17" aria-label="0 contributions on 2026-08-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-18" aria-label="0 contributions on 2026-08-18"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-08-19" aria-label="1 contribution on 2026-08-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-20" aria-label="0 contributions on 2026-08-20"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-08-21" aria-label="1 contribution on 2026-08-21"></div><div class="gh-cell gh-l2" title="2 contributions on 2026-08-22" aria-label="2 contributions on 2026-08-22"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l3" title="3 contributions on 2026-08-23" aria-label="3 contributions on 2026-08-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-24" aria-label="0 contributions on 2026-08-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-25" aria-label="0 contributions on 2026-08-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-26" aria-label="0 contributions on 2026-08-26"></div><div class="gh-cell gh-l2" title="2 contributions on 2026-08-27" aria-label="2 contributions on 2026-08-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-28" aria-label="0 contributions on 2026-08-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-29" aria-label="0 contributions on 2026-08-29"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-08-30" aria-label="0 contributions on 2026-08-30"></div><div class="gh-cell gh-l2" title="2 contributions on 2026-08-31" aria-label="2 contributions on 2026-08-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-09-01" aria-label="0 contributions on 2026-09-01"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-09-02" aria-label="1 contribution on 2026-09-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-09-03" aria-label="0 contributions on 2026-09-03"></div></div></div>
+                <!-- Heatmap Container: scrollable only inside on mobile -->
+                <div class="github-chart-viewport github-grid-wrapper py-0.5">
+                  <div class="w-full">
+                    <!-- Month labels header aligned with 53 week columns -->
+                    <div class="flex items-start gap-1.5 mb-1">
+                      <div class="shrink-0 w-6"></div>
+                      <div class="github-months-grid text-[10px] text-stone-400 font-sans w-full" style="display: grid; grid-template-columns: repeat(53, minmax(0, 1fr));">
+                        <span style="grid-column: 1 / span 4;">Sep</span>
+                        <span style="grid-column: 5 / span 4;">Oct</span>
+                        <span style="grid-column: 9 / span 5;">Nov</span>
+                        <span style="grid-column: 14 / span 4;">Dec</span>
+                        <span style="grid-column: 18 / span 4;">Jan</span>
+                        <span style="grid-column: 22 / span 4;">Feb</span>
+                        <span style="grid-column: 26 / span 5;">Mar</span>
+                        <span style="grid-column: 31 / span 4;">Apr</span>
+                        <span style="grid-column: 35 / span 4;">May</span>
+                        <span style="grid-column: 39 / span 5;">Jun</span>
+                        <span style="grid-column: 44 / span 4;">Jul</span>
+                        <span style="grid-column: 48 / span 5;">Aug</span>
+                      </div>
+                    </div>
+
+                    <!-- Matrix with Days on left -->
+                    <div class="flex items-start gap-1.5">
+                      <!-- Day labels -->
+                      <div class="flex flex-col justify-between text-[9px] text-stone-400 font-sans h-[82px] py-1 shrink-0 w-6">
+                        <span>Mon</span>
+                        <span>Wed</span>
+                        <span>Fri</span>
+                      </div>
+
+                      <!-- 53 columns x 7 rows heatmap grid -->
+                      <div id="github-heatmap-grid" class="github-heatmap-grid gap-[2.5px]"><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-08-31" aria-label="0 contributions on 2025-08-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-01" aria-label="0 contributions on 2025-09-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-02" aria-label="0 contributions on 2025-09-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-03" aria-label="0 contributions on 2025-09-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-04" aria-label="0 contributions on 2025-09-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-05" aria-label="0 contributions on 2025-09-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-06" aria-label="0 contributions on 2025-09-06"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-09-07" aria-label="0 contributions on 2025-09-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-08" aria-label="0 contributions on 2025-09-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-09" aria-label="0 contributions on 2025-09-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-10" aria-label="0 contributions on 2025-09-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-11" aria-label="0 contributions on 2025-09-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-12" aria-label="0 contributions on 2025-09-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-13" aria-label="0 contributions on 2025-09-13"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-09-14" aria-label="0 contributions on 2025-09-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-15" aria-label="0 contributions on 2025-09-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-16" aria-label="0 contributions on 2025-09-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-17" aria-label="0 contributions on 2025-09-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-18" aria-label="0 contributions on 2025-09-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-19" aria-label="0 contributions on 2025-09-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-20" aria-label="0 contributions on 2025-09-20"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-09-21" aria-label="0 contributions on 2025-09-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-22" aria-label="0 contributions on 2025-09-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-23" aria-label="0 contributions on 2025-09-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-24" aria-label="0 contributions on 2025-09-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-25" aria-label="0 contributions on 2025-09-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-26" aria-label="0 contributions on 2025-09-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-27" aria-label="0 contributions on 2025-09-27"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-09-28" aria-label="0 contributions on 2025-09-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-29" aria-label="0 contributions on 2025-09-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-09-30" aria-label="0 contributions on 2025-09-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-01" aria-label="0 contributions on 2025-10-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-02" aria-label="0 contributions on 2025-10-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-03" aria-label="0 contributions on 2025-10-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-04" aria-label="0 contributions on 2025-10-04"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-10-05" aria-label="0 contributions on 2025-10-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-06" aria-label="0 contributions on 2025-10-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-07" aria-label="0 contributions on 2025-10-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-08" aria-label="0 contributions on 2025-10-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-09" aria-label="0 contributions on 2025-10-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-10" aria-label="0 contributions on 2025-10-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-11" aria-label="0 contributions on 2025-10-11"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-10-12" aria-label="0 contributions on 2025-10-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-13" aria-label="0 contributions on 2025-10-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-14" aria-label="0 contributions on 2025-10-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-15" aria-label="0 contributions on 2025-10-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-16" aria-label="0 contributions on 2025-10-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-17" aria-label="0 contributions on 2025-10-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-18" aria-label="0 contributions on 2025-10-18"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-10-19" aria-label="0 contributions on 2025-10-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-20" aria-label="0 contributions on 2025-10-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-21" aria-label="0 contributions on 2025-10-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-22" aria-label="0 contributions on 2025-10-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-23" aria-label="0 contributions on 2025-10-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-24" aria-label="0 contributions on 2025-10-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-25" aria-label="0 contributions on 2025-10-25"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-10-26" aria-label="0 contributions on 2025-10-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-27" aria-label="0 contributions on 2025-10-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-28" aria-label="0 contributions on 2025-10-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-29" aria-label="0 contributions on 2025-10-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-30" aria-label="0 contributions on 2025-10-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-10-31" aria-label="0 contributions on 2025-10-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-01" aria-label="0 contributions on 2025-11-01"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-11-02" aria-label="0 contributions on 2025-11-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-03" aria-label="0 contributions on 2025-11-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-04" aria-label="0 contributions on 2025-11-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-05" aria-label="0 contributions on 2025-11-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-06" aria-label="0 contributions on 2025-11-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-07" aria-label="0 contributions on 2025-11-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-08" aria-label="0 contributions on 2025-11-08"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-11-09" aria-label="0 contributions on 2025-11-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-10" aria-label="0 contributions on 2025-11-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-11" aria-label="0 contributions on 2025-11-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-12" aria-label="0 contributions on 2025-11-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-13" aria-label="0 contributions on 2025-11-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-14" aria-label="0 contributions on 2025-11-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-15" aria-label="0 contributions on 2025-11-15"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-11-16" aria-label="0 contributions on 2025-11-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-17" aria-label="0 contributions on 2025-11-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-18" aria-label="0 contributions on 2025-11-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-19" aria-label="0 contributions on 2025-11-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-20" aria-label="0 contributions on 2025-11-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-21" aria-label="0 contributions on 2025-11-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-22" aria-label="0 contributions on 2025-11-22"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-11-23" aria-label="0 contributions on 2025-11-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-24" aria-label="0 contributions on 2025-11-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-25" aria-label="0 contributions on 2025-11-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-26" aria-label="0 contributions on 2025-11-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-27" aria-label="0 contributions on 2025-11-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-28" aria-label="0 contributions on 2025-11-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-11-29" aria-label="0 contributions on 2025-11-29"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-11-30" aria-label="0 contributions on 2025-11-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-01" aria-label="0 contributions on 2025-12-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-02" aria-label="0 contributions on 2025-12-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-03" aria-label="0 contributions on 2025-12-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-04" aria-label="0 contributions on 2025-12-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-05" aria-label="0 contributions on 2025-12-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-06" aria-label="0 contributions on 2025-12-06"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-12-07" aria-label="0 contributions on 2025-12-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-08" aria-label="0 contributions on 2025-12-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-09" aria-label="0 contributions on 2025-12-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-10" aria-label="0 contributions on 2025-12-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-11" aria-label="0 contributions on 2025-12-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-12" aria-label="0 contributions on 2025-12-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-13" aria-label="0 contributions on 2025-12-13"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-12-14" aria-label="0 contributions on 2025-12-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-15" aria-label="0 contributions on 2025-12-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-16" aria-label="0 contributions on 2025-12-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-17" aria-label="0 contributions on 2025-12-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-18" aria-label="0 contributions on 2025-12-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-19" aria-label="0 contributions on 2025-12-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-20" aria-label="0 contributions on 2025-12-20"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-12-21" aria-label="0 contributions on 2025-12-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-22" aria-label="0 contributions on 2025-12-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-23" aria-label="0 contributions on 2025-12-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-24" aria-label="0 contributions on 2025-12-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-25" aria-label="0 contributions on 2025-12-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-26" aria-label="0 contributions on 2025-12-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-27" aria-label="0 contributions on 2025-12-27"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2025-12-28" aria-label="0 contributions on 2025-12-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-29" aria-label="0 contributions on 2025-12-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-30" aria-label="0 contributions on 2025-12-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2025-12-31" aria-label="0 contributions on 2025-12-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-01" aria-label="0 contributions on 2026-01-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-02" aria-label="0 contributions on 2026-01-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-03" aria-label="0 contributions on 2026-01-03"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-01-04" aria-label="0 contributions on 2026-01-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-05" aria-label="0 contributions on 2026-01-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-06" aria-label="0 contributions on 2026-01-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-07" aria-label="0 contributions on 2026-01-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-08" aria-label="0 contributions on 2026-01-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-09" aria-label="0 contributions on 2026-01-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-10" aria-label="0 contributions on 2026-01-10"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-01-11" aria-label="0 contributions on 2026-01-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-12" aria-label="0 contributions on 2026-01-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-13" aria-label="0 contributions on 2026-01-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-14" aria-label="0 contributions on 2026-01-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-15" aria-label="0 contributions on 2026-01-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-16" aria-label="0 contributions on 2026-01-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-17" aria-label="0 contributions on 2026-01-17"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-01-18" aria-label="0 contributions on 2026-01-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-19" aria-label="0 contributions on 2026-01-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-20" aria-label="0 contributions on 2026-01-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-21" aria-label="0 contributions on 2026-01-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-22" aria-label="0 contributions on 2026-01-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-23" aria-label="0 contributions on 2026-01-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-24" aria-label="0 contributions on 2026-01-24"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-01-25" aria-label="0 contributions on 2026-01-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-26" aria-label="0 contributions on 2026-01-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-27" aria-label="0 contributions on 2026-01-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-28" aria-label="0 contributions on 2026-01-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-29" aria-label="0 contributions on 2026-01-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-30" aria-label="0 contributions on 2026-01-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-01-31" aria-label="0 contributions on 2026-01-31"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-02-01" aria-label="0 contributions on 2026-02-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-02" aria-label="0 contributions on 2026-02-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-03" aria-label="0 contributions on 2026-02-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-04" aria-label="0 contributions on 2026-02-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-05" aria-label="0 contributions on 2026-02-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-06" aria-label="0 contributions on 2026-02-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-07" aria-label="0 contributions on 2026-02-07"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-02-08" aria-label="0 contributions on 2026-02-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-09" aria-label="0 contributions on 2026-02-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-10" aria-label="0 contributions on 2026-02-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-11" aria-label="0 contributions on 2026-02-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-12" aria-label="0 contributions on 2026-02-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-13" aria-label="0 contributions on 2026-02-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-14" aria-label="0 contributions on 2026-02-14"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-02-15" aria-label="0 contributions on 2026-02-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-16" aria-label="0 contributions on 2026-02-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-17" aria-label="0 contributions on 2026-02-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-18" aria-label="0 contributions on 2026-02-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-19" aria-label="0 contributions on 2026-02-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-20" aria-label="0 contributions on 2026-02-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-21" aria-label="0 contributions on 2026-02-21"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-02-22" aria-label="0 contributions on 2026-02-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-23" aria-label="0 contributions on 2026-02-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-24" aria-label="0 contributions on 2026-02-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-25" aria-label="0 contributions on 2026-02-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-26" aria-label="0 contributions on 2026-02-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-27" aria-label="0 contributions on 2026-02-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-02-28" aria-label="0 contributions on 2026-02-28"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-03-01" aria-label="0 contributions on 2026-03-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-02" aria-label="0 contributions on 2026-03-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-03" aria-label="0 contributions on 2026-03-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-04" aria-label="0 contributions on 2026-03-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-05" aria-label="0 contributions on 2026-03-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-06" aria-label="0 contributions on 2026-03-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-07" aria-label="0 contributions on 2026-03-07"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-03-08" aria-label="0 contributions on 2026-03-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-09" aria-label="0 contributions on 2026-03-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-10" aria-label="0 contributions on 2026-03-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-11" aria-label="0 contributions on 2026-03-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-12" aria-label="0 contributions on 2026-03-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-13" aria-label="0 contributions on 2026-03-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-14" aria-label="0 contributions on 2026-03-14"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-03-15" aria-label="0 contributions on 2026-03-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-16" aria-label="0 contributions on 2026-03-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-17" aria-label="0 contributions on 2026-03-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-18" aria-label="0 contributions on 2026-03-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-19" aria-label="0 contributions on 2026-03-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-20" aria-label="0 contributions on 2026-03-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-21" aria-label="0 contributions on 2026-03-21"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-03-22" aria-label="0 contributions on 2026-03-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-23" aria-label="0 contributions on 2026-03-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-24" aria-label="0 contributions on 2026-03-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-25" aria-label="0 contributions on 2026-03-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-26" aria-label="0 contributions on 2026-03-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-27" aria-label="0 contributions on 2026-03-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-28" aria-label="0 contributions on 2026-03-28"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-03-29" aria-label="0 contributions on 2026-03-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-30" aria-label="0 contributions on 2026-03-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-03-31" aria-label="0 contributions on 2026-03-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-01" aria-label="0 contributions on 2026-04-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-02" aria-label="0 contributions on 2026-04-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-03" aria-label="0 contributions on 2026-04-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-04" aria-label="0 contributions on 2026-04-04"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-04-05" aria-label="0 contributions on 2026-04-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-06" aria-label="0 contributions on 2026-04-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-07" aria-label="0 contributions on 2026-04-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-08" aria-label="0 contributions on 2026-04-08"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-04-09" aria-label="1 contribution on 2026-04-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-10" aria-label="0 contributions on 2026-04-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-11" aria-label="0 contributions on 2026-04-11"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-04-12" aria-label="0 contributions on 2026-04-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-13" aria-label="0 contributions on 2026-04-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-14" aria-label="0 contributions on 2026-04-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-15" aria-label="0 contributions on 2026-04-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-16" aria-label="0 contributions on 2026-04-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-17" aria-label="0 contributions on 2026-04-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-18" aria-label="0 contributions on 2026-04-18"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-04-19" aria-label="0 contributions on 2026-04-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-20" aria-label="0 contributions on 2026-04-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-21" aria-label="0 contributions on 2026-04-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-22" aria-label="0 contributions on 2026-04-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-23" aria-label="0 contributions on 2026-04-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-24" aria-label="0 contributions on 2026-04-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-25" aria-label="0 contributions on 2026-04-25"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-04-26" aria-label="0 contributions on 2026-04-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-27" aria-label="0 contributions on 2026-04-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-28" aria-label="0 contributions on 2026-04-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-29" aria-label="0 contributions on 2026-04-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-04-30" aria-label="0 contributions on 2026-04-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-01" aria-label="0 contributions on 2026-05-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-02" aria-label="0 contributions on 2026-05-02"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l2" title="2 contributions on 2026-05-03" aria-label="2 contributions on 2026-05-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-04" aria-label="0 contributions on 2026-05-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-05" aria-label="0 contributions on 2026-05-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-06" aria-label="0 contributions on 2026-05-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-07" aria-label="0 contributions on 2026-05-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-08" aria-label="0 contributions on 2026-05-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-09" aria-label="0 contributions on 2026-05-09"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-05-10" aria-label="0 contributions on 2026-05-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-11" aria-label="0 contributions on 2026-05-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-12" aria-label="0 contributions on 2026-05-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-13" aria-label="0 contributions on 2026-05-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-14" aria-label="0 contributions on 2026-05-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-15" aria-label="0 contributions on 2026-05-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-16" aria-label="0 contributions on 2026-05-16"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-05-17" aria-label="0 contributions on 2026-05-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-18" aria-label="0 contributions on 2026-05-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-19" aria-label="0 contributions on 2026-05-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-20" aria-label="0 contributions on 2026-05-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-21" aria-label="0 contributions on 2026-05-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-22" aria-label="0 contributions on 2026-05-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-23" aria-label="0 contributions on 2026-05-23"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l3" title="3 contributions on 2026-05-24" aria-label="3 contributions on 2026-05-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-25" aria-label="0 contributions on 2026-05-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-26" aria-label="0 contributions on 2026-05-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-27" aria-label="0 contributions on 2026-05-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-28" aria-label="0 contributions on 2026-05-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-29" aria-label="0 contributions on 2026-05-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-05-30" aria-label="0 contributions on 2026-05-30"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-05-31" aria-label="0 contributions on 2026-05-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-01" aria-label="0 contributions on 2026-06-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-02" aria-label="0 contributions on 2026-06-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-03" aria-label="0 contributions on 2026-06-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-04" aria-label="0 contributions on 2026-06-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-05" aria-label="0 contributions on 2026-06-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-06" aria-label="0 contributions on 2026-06-06"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-06-07" aria-label="0 contributions on 2026-06-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-08" aria-label="0 contributions on 2026-06-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-09" aria-label="0 contributions on 2026-06-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-10" aria-label="0 contributions on 2026-06-10"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-11" aria-label="0 contributions on 2026-06-11"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-12" aria-label="0 contributions on 2026-06-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-13" aria-label="0 contributions on 2026-06-13"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-06-14" aria-label="0 contributions on 2026-06-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-15" aria-label="0 contributions on 2026-06-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-16" aria-label="0 contributions on 2026-06-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-17" aria-label="0 contributions on 2026-06-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-18" aria-label="0 contributions on 2026-06-18"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-19" aria-label="0 contributions on 2026-06-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-20" aria-label="0 contributions on 2026-06-20"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-06-21" aria-label="0 contributions on 2026-06-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-22" aria-label="0 contributions on 2026-06-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-23" aria-label="0 contributions on 2026-06-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-24" aria-label="0 contributions on 2026-06-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-25" aria-label="0 contributions on 2026-06-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-26" aria-label="0 contributions on 2026-06-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-27" aria-label="0 contributions on 2026-06-27"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-06-28" aria-label="0 contributions on 2026-06-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-06-29" aria-label="0 contributions on 2026-06-29"></div><div class="gh-cell gh-l2" title="2 contributions on 2026-06-30" aria-label="2 contributions on 2026-06-30"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-01" aria-label="0 contributions on 2026-07-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-02" aria-label="0 contributions on 2026-07-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-03" aria-label="0 contributions on 2026-07-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-04" aria-label="0 contributions on 2026-07-04"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l1" title="1 contribution on 2026-07-05" aria-label="1 contribution on 2026-07-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-06" aria-label="0 contributions on 2026-07-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-07" aria-label="0 contributions on 2026-07-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-08" aria-label="0 contributions on 2026-07-08"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-09" aria-label="0 contributions on 2026-07-09"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-07-10" aria-label="1 contribution on 2026-07-10"></div><div class="gh-cell gh-l3" title="3 contributions on 2026-07-11" aria-label="3 contributions on 2026-07-11"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l4" title="4 contributions on 2026-07-12" aria-label="4 contributions on 2026-07-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-13" aria-label="0 contributions on 2026-07-13"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-14" aria-label="0 contributions on 2026-07-14"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-15" aria-label="0 contributions on 2026-07-15"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-16" aria-label="0 contributions on 2026-07-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-17" aria-label="0 contributions on 2026-07-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-18" aria-label="0 contributions on 2026-07-18"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-07-19" aria-label="0 contributions on 2026-07-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-20" aria-label="0 contributions on 2026-07-20"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-21" aria-label="0 contributions on 2026-07-21"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-22" aria-label="0 contributions on 2026-07-22"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-23" aria-label="0 contributions on 2026-07-23"></div><div class="gh-cell gh-l3" title="3 contributions on 2026-07-24" aria-label="3 contributions on 2026-07-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-25" aria-label="0 contributions on 2026-07-25"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-07-26" aria-label="0 contributions on 2026-07-26"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-27" aria-label="0 contributions on 2026-07-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-28" aria-label="0 contributions on 2026-07-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-29" aria-label="0 contributions on 2026-07-29"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-07-30" aria-label="0 contributions on 2026-07-30"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-07-31" aria-label="1 contribution on 2026-07-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-01" aria-label="0 contributions on 2026-08-01"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-08-02" aria-label="0 contributions on 2026-08-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-03" aria-label="0 contributions on 2026-08-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-04" aria-label="0 contributions on 2026-08-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-05" aria-label="0 contributions on 2026-08-05"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-06" aria-label="0 contributions on 2026-08-06"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-07" aria-label="0 contributions on 2026-08-07"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-08" aria-label="0 contributions on 2026-08-08"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-08-09" aria-label="0 contributions on 2026-08-09"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-10" aria-label="0 contributions on 2026-08-10"></div><div class="gh-cell gh-l4" title="4 contributions on 2026-08-11" aria-label="4 contributions on 2026-08-11"></div><div class="gh-cell gh-l4" title="4 contributions on 2026-08-12" aria-label="4 contributions on 2026-08-12"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-13" aria-label="0 contributions on 2026-08-13"></div><div class="gh-cell gh-l2" title="2 contributions on 2026-08-14" aria-label="2 contributions on 2026-08-14"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-08-15" aria-label="1 contribution on 2026-08-15"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-08-16" aria-label="0 contributions on 2026-08-16"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-17" aria-label="0 contributions on 2026-08-17"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-18" aria-label="0 contributions on 2026-08-18"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-08-19" aria-label="1 contribution on 2026-08-19"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-20" aria-label="0 contributions on 2026-08-20"></div><div class="gh-cell gh-l1" title="1 contribution on 2026-08-21" aria-label="1 contribution on 2026-08-21"></div><div class="gh-cell gh-l2" title="2 contributions on 2026-08-22" aria-label="2 contributions on 2026-08-22"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l3" title="3 contributions on 2026-08-23" aria-label="3 contributions on 2026-08-23"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-24" aria-label="0 contributions on 2026-08-24"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-25" aria-label="0 contributions on 2026-08-25"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-26" aria-label="0 contributions on 2026-08-26"></div><div class="gh-cell gh-l2" title="2 contributions on 2026-08-27" aria-label="2 contributions on 2026-08-27"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-28" aria-label="0 contributions on 2026-08-28"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-08-29" aria-label="0 contributions on 2026-08-29"></div></div><div class="flex flex-col gap-[2.5px]"><div class="gh-cell gh-l0" title="0 contributions on 2026-08-30" aria-label="0 contributions on 2026-08-30"></div><div class="gh-cell gh-l2" title="2 contributions on 2026-08-31" aria-label="2 contributions on 2026-08-31"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-09-01" aria-label="0 contributions on 2026-09-01"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-09-02" aria-label="0 contributions on 2026-09-02"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-09-03" aria-label="0 contributions on 2026-09-03"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-09-04" aria-label="0 contributions on 2026-09-04"></div><div class="gh-cell gh-l0" title="0 contributions on 2026-09-05" aria-label="0 contributions on 2026-09-05"></div></div></div>
               </div>
             </div>
           </div>
 
-          <!-- Card Footer -->
-          <div class="flex items-center justify-between pt-2.5 border-t border-stone-200/70 text-[11px] text-stone-500 mt-1 font-sans">
-            <span id="gh-contrib-count">92 contributions in the last year</span>
-            <div class="flex items-center gap-1">
-              <span class="text-[10px] text-stone-500">Less</span>
-              <span class="inline-block w-2.5 h-2.5 rounded-[2px] bg-[#e0ebe4]"></span>
-              <span class="inline-block w-2.5 h-2.5 rounded-[2px] bg-[#8ae1af]"></span>
-              <span class="inline-block w-2.5 h-2.5 rounded-[2px] bg-[#45bf82]"></span>
-              <span class="inline-block w-2.5 h-2.5 rounded-[2px] bg-[#00925a]"></span>
-              <span class="inline-block w-2.5 h-2.5 rounded-[2px] bg-[#005d36]"></span>
-              <span class="text-[10px] text-stone-500">More</span>
+                <!-- Card Footer -->
+                <div class="mt-1.5 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-[11px] text-stone-500 font-sans pt-1.5 border-t border-stone-200/70">
+                  <span id="gh-contrib-count" class="github-meta">92 contributions in the last year</span>
+                  <div class="flex items-center gap-1.5 ml-auto">
+                    <span class="text-[10px] text-stone-500">Less</span>
+                    <span class="inline-block w-2.5 h-2.5 rounded-[2px]" style="background-color: var(--color-gh-0);"></span>
+                    <span class="inline-block w-2.5 h-2.5 rounded-[2px]" style="background-color: var(--color-gh-1);"></span>
+                    <span class="inline-block w-2.5 h-2.5 rounded-[2px]" style="background-color: var(--color-gh-2);"></span>
+                    <span class="inline-block w-2.5 h-2.5 rounded-[2px]" style="background-color: var(--color-gh-3);"></span>
+                    <span class="inline-block w-2.5 h-2.5 rounded-[2px]" style="background-color: var(--color-gh-4);"></span>
+                    <span class="text-[10px] text-stone-500">More</span>
+                  </div>
+                </div>
+
+              </div><!-- end .github-chart-content -->
+            </div><!-- end .github-paper-card -->
+          </div><!-- end .github-card -->
+        </div><!-- end .hero-content -->
+  </div><!-- end .hero-grid -->
+</section>
+
+    <!-- ──────────────── LATELY SECTION (CLOTHESLINE HANGING CARDS) ──────────────── -->
+    <section id="lately" class="lately-section hero-wide animate-fade-up">
+      <!-- Section Header -->
+      <div class="relative mb-6">
+        <div class="flex items-baseline gap-2">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            What I've been <span class="font-hand text-accent text-3xl sm:text-4xl font-semibold tracking-normal" style="color: #E35342;">upto lately</span>
+          </h2>
+        </div>
+        <!-- Chalk dash underline -->
+        <div class="w-12 h-0.5 bg-white/70 rounded-full mt-2" aria-hidden="true"></div>
+      </div>
+
+      <!-- Clothesline Track -->
+      <div class="clothesline-track">
+        <!-- Hanging Jute Rope -->
+        <div class="clothesline-rope" aria-hidden="true"></div>
+
+        <!-- 4 Hanging Cards Container -->
+        <div class="clothesline-cards-container">
+          
+          <!-- ─── CARD 1: SLAB Hackathon ─── -->
+          <div class="hanging-card hanging-card-1 group">
+            <!-- Clothespin Clip -->
+            <div class="card-clothespin" aria-hidden="true">
+              <svg viewBox="0 0 16 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <rect x="3" y="0" width="10" height="34" rx="2" fill="#E6BA75" stroke="#8C5C26" stroke-width="1.2" />
+                <line x1="8" y1="12" x2="8" y2="34" stroke="#8C5C26" stroke-width="1.2" />
+                <rect x="5" y="14" width="6" height="4" rx="1" fill="#C29452" />
+                <circle cx="8" cy="16" r="3.5" fill="#A8A29E" stroke="#57534E" stroke-width="1" />
+                <circle cx="8" cy="16" r="1.5" fill="#78716C" />
+              </svg>
+            </div>
+
+            <!-- Card Media Frame (Uniform Height across all cards) -->
+            <div class="card-media-frame bg-stone-100">
+              <img src="{{ url_for('static', filename='assets/slab-hackathon-cert.jpg') }}" alt="SLAB Hackathon Winner Certificate" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            </div>
+
+            <!-- Card Body -->
+            <div class="card-body">
+              <!-- Category Badge -->
+              <div class="flex items-center gap-1.5 text-xs font-bold text-[#E35342] font-hand tracking-wide">
+                <span>🏆</span>
+                <span>1st Place Winner</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-stone-900 font-bold text-sm sm:text-base mt-0.5 leading-snug">
+                SLAB Hackathon
+              </h3>
+
+              <!-- Description -->
+              <p class="text-stone-600 text-xs leading-relaxed mt-1 line-clamp-3">
+                Won with building shadcn ui and Drag components onto an infinite canvas, wire behavior, validate with Zod, export production-ready React code. Fully client-side.
+              </p>
+
+              <!-- Links & Action Icons -->
+              <div class="card-links flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <a href="https://github.com/RITIK-KHARYA/shadcncanvas" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-stone-100 hover:bg-stone-200 border border-stone-300/80 flex items-center justify-center text-stone-700 hover:text-stone-900 transition-colors" title="GitHub Repository">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                    </svg>
+                  </a>
+                  <a href="https://shadcncanvas.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-stone-100 hover:bg-stone-200 border border-stone-300/80 flex items-center justify-center text-stone-700 hover:text-stone-900 transition-colors" title="Live Application">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trophy Sticker Badge on bottom right corner -->
+            <div class="absolute -bottom-3 -right-3 w-8 h-8 rounded-full bg-white border-2 border-stone-200 shadow-md flex items-center justify-center text-amber-500 z-10 text-xs" title="1st Place Achievement">
+              🏆
             </div>
           </div>
+
+          <!-- ─── CARD 2: DSA & Streak ─── -->
+          <div class="hanging-card hanging-card-2 group">
+            <!-- Clothespin Clip -->
+            <div class="card-clothespin" aria-hidden="true">
+              <svg viewBox="0 0 16 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <rect x="3" y="0" width="10" height="34" rx="2" fill="#E6BA75" stroke="#8C5C26" stroke-width="1.2" />
+                <line x1="8" y1="12" x2="8" y2="34" stroke="#8C5C26" stroke-width="1.2" />
+                <rect x="5" y="14" width="6" height="4" rx="1" fill="#C29452" />
+                <circle cx="8" cy="16" r="3.5" fill="#A8A29E" stroke="#57534E" stroke-width="1" />
+                <circle cx="8" cy="16" r="1.5" fill="#78716C" />
+              </svg>
+            </div>
+
+            <!-- Card Media Frame (Uniform Height across all cards) -->
+            <div class="card-media-frame bg-stone-900">
+              <img src="{{ url_for('static', filename='assets/dsa-setup.jpg') }}" alt="Late night DSA grind desk setup" class="w-full h-full object-cover object-[center_45%] group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            </div>
+
+            <!-- Card Body -->
+            <div class="card-body">
+              <!-- Category Badge -->
+              <div class="flex items-center gap-1.5 text-xs font-bold text-[#E35342] font-hand tracking-wide">
+                <span>⚡</span>
+                <span>DSA and streak</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-stone-900 font-bold text-sm sm:text-base mt-0.5 leading-snug">
+                DSA
+              </h3>
+
+              <!-- Description -->
+              <p class="text-stone-600 text-xs leading-relaxed mt-1 line-clamp-3">
+                improving problem solving skill..trying to maintaining streak daily
+              </p>
+
+              <!-- Links & Action Icons -->
+              <div class="card-links flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <a href="https://github.com/Samarthweb2/neetcode-submissions" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-stone-100 hover:bg-stone-200 border border-stone-300/80 flex items-center justify-center text-stone-700 hover:text-stone-900 transition-colors" title="NeetCode Submissions Repository">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fire Streak Sticker Badge on bottom right corner -->
+            <div class="absolute -bottom-3 -right-3 w-8 h-8 rounded-full bg-white border-2 border-stone-200 shadow-md flex items-center justify-center text-orange-500 z-10 text-xs" title="Daily Streak">
+              🔥
+            </div>
+          </div>
+
+          <!-- ─── CARD 3: Lifting Weights ─── -->
+          <div class="hanging-card hanging-card-3 group">
+            <!-- Clothespin Clip -->
+            <div class="card-clothespin" aria-hidden="true">
+              <svg viewBox="0 0 16 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <rect x="3" y="0" width="10" height="34" rx="2" fill="#E6BA75" stroke="#8C5C26" stroke-width="1.2" />
+                <line x1="8" y1="12" x2="8" y2="34" stroke="#8C5C26" stroke-width="1.2" />
+                <rect x="5" y="14" width="6" height="4" rx="1" fill="#C29452" />
+                <circle cx="8" cy="16" r="3.5" fill="#A8A29E" stroke="#57534E" stroke-width="1" />
+                <circle cx="8" cy="16" r="1.5" fill="#78716C" />
+              </svg>
+            </div>
+
+            <!-- Card Media Frame (Uniform Height across all cards) -->
+            <div class="card-media-frame bg-stone-950">
+              <img src="{{ url_for('static', filename='assets/gym-physique.jpg') }}" alt="Samarth lifting and fitness physique transformation" class="w-full h-full object-cover object-[center_18%] group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            </div>
+
+            <!-- Card Body -->
+            <div class="card-body">
+              <!-- Category Badge -->
+              <div class="flex items-center gap-1.5 text-xs font-bold text-[#E35342] font-hand tracking-wide">
+                <span>💪</span>
+                <span>gaining muscles mass more</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-stone-900 font-bold text-sm sm:text-base mt-0.5 leading-snug">
+                lifting weights
+              </h3>
+
+              <!-- Description -->
+              <p class="text-stone-600 text-xs leading-relaxed mt-1 line-clamp-3">
+                started my journey in jan 25. 49 kg to 67 kg transformation
+              </p>
+
+              <!-- Links & Action Icons -->
+              <div class="card-links flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <a href="https://www.instagram.com/masti.khooor/" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-stone-100 hover:bg-stone-200 border border-stone-300/80 flex items-center justify-center text-stone-700 hover:text-stone-900 transition-colors" title="Instagram Profile">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dumbbell Sticker Badge on bottom right corner -->
+            <div class="absolute -bottom-3 -right-3 w-8 h-8 rounded-full bg-white border-2 border-stone-200 shadow-md flex items-center justify-center text-red-500 z-10 text-xs" title="Transformation">
+              💪
+            </div>
+          </div>
+
+          <!-- ─── CARD 4: Upcoming Project (Coming Soon) ─── -->
+          <div class="hanging-card hanging-card-4 opacity-95">
+            <!-- Clothespin Clip -->
+            <div class="card-clothespin" aria-hidden="true">
+              <svg viewBox="0 0 16 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <rect x="3" y="0" width="10" height="34" rx="2" fill="#E6BA75" stroke="#8C5C26" stroke-width="1.2" />
+                <line x1="8" y1="12" x2="8" y2="34" stroke="#8C5C26" stroke-width="1.2" />
+                <rect x="5" y="14" width="6" height="4" rx="1" fill="#C29452" />
+                <circle cx="8" cy="16" r="3.5" fill="#A8A29E" stroke="#57534E" stroke-width="1" />
+                <circle cx="8" cy="16" r="1.5" fill="#78716C" />
+              </svg>
+            </div>
+
+            <!-- Card Media Frame (Uniform Height across all cards) -->
+            <div class="card-media-frame flex flex-col items-center justify-center p-3 text-center border-2 border-dashed border-stone-300 bg-stone-100/70">
+              <span class="text-3xl mb-1">✨</span>
+              <span class="text-xs text-stone-600 font-medium">Upcoming Project</span>
+            </div>
+
+            <!-- Card Body -->
+            <div class="card-body">
+              <!-- Category Badge -->
+              <div class="flex items-center gap-1.5 text-xs font-bold text-[#E35342] font-hand tracking-wide">
+                <span>🔒</span>
+                <span>In the Lab</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-stone-900 font-bold text-sm sm:text-base mt-0.5 leading-snug">
+                Upcoming Project
+              </h3>
+
+              <!-- Description -->
+              <p class="text-stone-500 text-xs leading-relaxed mt-1 italic">
+                Coming soon...
+              </p>
+
+              <!-- Links & Action Icons placeholder -->
+              <div class="card-links flex items-center justify-between">
+                <span class="text-[11px] text-stone-400 font-hand">cooking...</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end .clothesline-cards-container -->
+      </div><!-- end .clothesline-track -->
+    </section>
+
+
+    <!-- ──────────────── EDUCATION SECTION (COMPACT TAPED CREAM PAPER CARD) ──────────────── -->
+    <section id="education" class="education-section hero-wide animate-fade-up">
+      <!-- Chalk Cat Illustration above the card (Arjun chalkboard motif) -->
+      <div class="education-cat-header flex items-end justify-end pr-8 sm:pr-14 mb-[-6px] relative z-20 pointer-events-none select-none">
+        <div class="flex items-center gap-1 text-white/40">
+          <span class="font-hand text-xs sm:text-sm text-stone-400/80 mr-1 rotate-[-6deg]">meow ~</span>
+          <svg class="chalk-cat-svg w-14 h-12 sm:w-16 sm:h-14 overflow-visible" viewBox="0 0 100 80" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <defs>
+              <filter id="chalk-cat-rough" x="-20%" y="-20%" width="140%" height="140%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" seed="5" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G" />
+              </filter>
+            </defs>
+            <g filter="url(#chalk-cat-rough)">
+              <!-- Cat Head with Perked Ears -->
+              <path d="M 20 45 Q 15 15 35 25 Q 50 20 65 25 Q 85 15 80 45 Q 85 70 50 70 Q 15 70 20 45 Z" stroke="rgba(255,255,255,0.7)" stroke-width="2" />
+              <!-- Eyes -->
+              <path d="M 33 42 Q 38 40 43 42" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" />
+              <path d="M 57 42 Q 62 40 67 42" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" />
+              <!-- Nose Triangle & Smile Mouth -->
+              <polygon points="47,48 53,48 50,52" fill="rgba(255,255,255,0.6)" stroke="none" />
+              <path d="M 50 52 Q 44 57 38 54" stroke="rgba(255,255,255,0.75)" stroke-width="1.6" />
+              <path d="M 50 52 Q 56 57 62 54" stroke="rgba(255,255,255,0.75)" stroke-width="1.6" />
+              <!-- Left & Right Whiskers -->
+              <line x1="14" y1="48" x2="32" y2="50" stroke="rgba(255,255,255,0.55)" stroke-width="1.4" />
+              <line x1="12" y1="55" x2="32" y2="54" stroke="rgba(255,255,255,0.55)" stroke-width="1.4" />
+              <line x1="86" y1="48" x2="68" y2="50" stroke="rgba(255,255,255,0.55)" stroke-width="1.4" />
+              <line x1="88" y1="55" x2="68" y2="54" stroke="rgba(255,255,255,0.55)" stroke-width="1.4" />
+              <!-- Little paws resting on the card edge -->
+              <path d="M 28 68 C 26 62, 38 61, 40 68" stroke="rgba(255,255,255,0.65)" stroke-width="1.8" fill="rgba(255,255,255,0.08)" />
+              <path d="M 60 68 C 58 62, 70 61, 72 68" stroke="rgba(255,255,255,0.65)" stroke-width="1.8" fill="rgba(255,255,255,0.08)" />
+            </g>
+          </svg>
         </div>
       </div>
 
+      <!-- Taped Cream Paper Education Card (Full-width within content canvas) -->
+      <div class="education-taped-card" tabindex="0" role="region" aria-label="Education - ITM, Gwalior">
+        <div class="education-paper-inner">
+          <!-- Small bold dark heading above the entry -->
+          <h3 class="education-heading">Education</h3>
+
+          <div class="education-timeline-entry">
+            <!-- Left: Round college / emblem badge -->
+            <div class="college-emblem-badge" title="ITM, Gwalior">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#E35342]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
+                <path d="M22 10v6"/>
+                <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+              </svg>
+            </div>
+
+            <!-- Right: Timeline Details -->
+            <div class="education-details-col">
+              <!-- Header Row: College Name & Location -->
+              <div class="education-header-row">
+                <h4 class="college-name">ITM, Gwalior <span class="font-mono text-xs font-medium text-stone-600 no-underline inline-block">(2023-2027)</span></h4>
+                <span class="college-location">Gwalior, India</span>
+              </div>
+
+              <!-- Timeline Node & Dotted Line -->
+              <div class="education-timeline-body">
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-content">
+                  <p class="degree-title">Bachelor of Technology</p>
+                  <p class="degree-major">Major: Computer Science and Engineering</p>
+                  <p class="degree-status">Final-year B.Tech student</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- end .education-timeline-entry -->
+        </div><!-- end .education-paper-inner -->
+      </div><!-- end .education-taped-card -->
     </section>
+
+
+    <!-- ──────────────── PROJECTS SHOWCASE SECTION ──────────────── -->
+    <section id="projects" class="projects-section hero-wide animate-fade-up">
+      <!-- Section Header -->
+      <div class="relative mb-6">
+        <div class="flex items-baseline gap-2">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Projects <span class="font-hand text-accent text-3xl sm:text-4xl font-semibold tracking-normal" style="color: #E35342;">pinned up</span>
+          </h2>
+        </div>
+        <!-- Chalk dash underline -->
+        <div class="w-12 h-0.5 bg-white/70 rounded-full mt-2" aria-hidden="true"></div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        
+        <!-- PROJECT 1: CareerLensAI -->
+        <div class="chalk-project-card group">
+          <div class="project-card-tape" aria-hidden="true"></div>
+          
+          <!-- Card Top Bar -->
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="font-hand text-xs sm:text-sm font-bold text-[#E35342] tracking-wide">
+              🤖 AI & Data Analytics
+            </span>
+            <span class="text-[10px] text-stone-400 font-mono border border-white/10 px-1.5 py-0.5 rounded">
+              2024–2025
+            </span>
+          </div>
+
+          <!-- Project Title -->
+          <h3 class="text-stone-100 font-bold text-base sm:text-lg leading-snug group-hover:text-amber-200/95 transition-colors">
+            CareerLensAI
+          </h3>
+          <p class="text-[#E35342] font-hand text-xs sm:text-sm font-medium mt-0.5 mb-2.5">
+            AI-Powered Resume Analysis & Career Recommendation Platform
+          </p>
+
+          <!-- Description -->
+          <p class="text-stone-300 text-xs leading-relaxed flex-1 mb-3.5">
+            Scalable FastAPI backend with NLP candidate profiling, ATS scoring, and an automated ETL pipeline processing 10,000+ job postings for skill extraction, job matching, and Power BI analytical insights.
+          </p>
+
+          <!-- Tech Stack Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="project-tech-tag">Python</span>
+            <span class="project-tech-tag">FastAPI</span>
+            <span class="project-tech-tag">NLP</span>
+            <span class="project-tech-tag">SQL</span>
+            <span class="project-tech-tag">Power BI</span>
+            <span class="project-tech-tag">ETL</span>
+          </div>
+
+          <!-- Action Links -->
+          <div class="pt-2.5 border-t border-white/10 flex items-center justify-between mt-auto">
+            <a href="https://github.com/SamarthWeb2" target="_blank" rel="noopener noreferrer" class="text-xs text-stone-300 hover:text-white flex items-center gap-1.5 transition-colors group/btn">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span>Source Repo</span>
+              <span class="group-hover/btn:translate-x-0.5 transition-transform">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PROJECT 2: Shadcn Canvas -->
+        <div class="chalk-project-card group">
+          <div class="project-card-tape" aria-hidden="true"></div>
+          
+          <!-- Card Top Bar -->
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="font-hand text-xs sm:text-sm font-bold text-[#E35342] tracking-wide">
+              🏆 SLAB Hackathon 1st Place
+            </span>
+            <span class="text-[10px] text-emerald-400 font-mono border border-emerald-500/20 bg-emerald-500/10 px-1.5 py-0.5 rounded">
+              Live Project
+            </span>
+          </div>
+
+          <!-- Project Title -->
+          <h3 class="text-stone-100 font-bold text-base sm:text-lg leading-snug group-hover:text-amber-200/95 transition-colors">
+            Shadcn Canvas
+          </h3>
+          <p class="text-[#E35342] font-hand text-xs sm:text-sm font-medium mt-0.5 mb-2.5">
+            Infinite Canvas Visual Builder & React Code Generator
+          </p>
+
+          <!-- Description -->
+          <p class="text-stone-300 text-xs leading-relaxed flex-1 mb-3.5">
+            Drag components onto an infinite canvas, wire interactive behavior, validate schemas with Zod, and export clean, production-ready React code. Fully client-side without servers.
+          </p>
+
+          <!-- Tech Stack Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="project-tech-tag">React</span>
+            <span class="project-tech-tag">TypeScript</span>
+            <span class="project-tech-tag">Shadcn UI</span>
+            <span class="project-tech-tag">Zod</span>
+            <span class="project-tech-tag">Tailwind</span>
+          </div>
+
+          <!-- Action Links -->
+          <div class="pt-2.5 border-t border-white/10 flex items-center justify-between mt-auto">
+            <a href="https://github.com/RITIK-KHARYA/shadcncanvas" target="_blank" rel="noopener noreferrer" class="text-xs text-stone-300 hover:text-white flex items-center gap-1.5 transition-colors">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://shadcncanvas.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-xs text-amber-300 hover:text-amber-200 flex items-center gap-1 transition-colors font-medium">
+              <span>Live Demo</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- PROJECT 3: AlgoStreak -->
+        <div class="chalk-project-card group">
+          <div class="project-card-tape" aria-hidden="true"></div>
+          
+          <!-- Card Top Bar -->
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="font-hand text-xs sm:text-sm font-bold text-[#E35342] tracking-wide">
+              ⚡ Problem Solving
+            </span>
+            <span class="text-[10px] text-stone-400 font-mono border border-white/10 px-1.5 py-0.5 rounded">
+              Continuous
+            </span>
+          </div>
+
+          <!-- Project Title -->
+          <h3 class="text-stone-100 font-bold text-base sm:text-lg leading-snug group-hover:text-amber-200/95 transition-colors">
+            AlgoStreak & DSA
+          </h3>
+          <p class="text-[#E35342] font-hand text-xs sm:text-sm font-medium mt-0.5 mb-2.5">
+            Algorithmic Problem Solving & Data Structures Mastery
+          </p>
+
+          <!-- Description -->
+          <p class="text-stone-300 text-xs leading-relaxed flex-1 mb-3.5">
+            Daily algorithmic problem solving repository maintaining streaks across core computer science patterns including dynamic programming, graphs, trees, arrays, and system design.
+          </p>
+
+          <!-- Tech Stack Tags -->
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="project-tech-tag">C++</span>
+            <span class="project-tech-tag">Python</span>
+            <span class="project-tech-tag">Algorithms</span>
+            <span class="project-tech-tag">Data Structures</span>
+            <span class="project-tech-tag">NeetCode</span>
+          </div>
+
+          <!-- Action Links -->
+          <div class="pt-2.5 border-t border-white/10 flex items-center justify-between mt-auto">
+            <a href="https://github.com/Samarthweb2/neetcode-submissions" target="_blank" rel="noopener noreferrer" class="text-xs text-stone-300 hover:text-white flex items-center gap-1.5 transition-colors group/btn">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span>Submissions Repo</span>
+              <span class="group-hover/btn:translate-x-0.5 transition-transform">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- end .projects-grid -->
+    </section>
+
+
 
 
     <!-- ──────────────── FOOTER ──────────────── -->

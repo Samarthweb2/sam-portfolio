@@ -169,11 +169,60 @@
 
   const githubCardEl = document.querySelector('.github-card');
   if (githubCardEl) {
-    githubCardEl.addEventListener('click', function (e) {
-      if (e.target.closest('a, button, [role="button"]')) return;
-      githubCardEl.classList.remove('sticky-wobble');
-      void githubCardEl.offsetWidth; // trigger reflow
-      githubCardEl.classList.add('sticky-wobble');
+    const wobbleGithubCard = () => {
+      githubCardEl.classList.remove('github-card-wobble');
+      void githubCardEl.offsetWidth; // Force synchronous reflow so animation restarts every time
+      githubCardEl.classList.add('github-card-wobble');
+    };
+
+    // Desktop: wobble once when cursor enters the card
+    githubCardEl.addEventListener('pointerenter', (e) => {
+      if (e.pointerType !== 'touch') {
+        wobbleGithubCard();
+      }
+    });
+
+    // Mobile: wobble once when user touches the card
+    githubCardEl.addEventListener('touchstart', wobbleGithubCard, { passive: true });
+
+    // Accessibility: keyboard focus
+    githubCardEl.addEventListener('focusin', wobbleGithubCard);
+
+    // Clean up class on animation completion
+    githubCardEl.addEventListener('animationend', (e) => {
+      if (e.animationName === 'githubCardWobble' || e.animationName === 'ghCardWobble') {
+        githubCardEl.classList.remove('github-card-wobble');
+      }
+    });
+  }
+
+  // ─── Education Card Wobble Interaction ───
+  const educationCardEl = document.querySelector('.education-taped-card');
+  if (educationCardEl) {
+    const wobbleEducationCard = () => {
+      educationCardEl.classList.remove('education-card-wobble');
+      void educationCardEl.offsetWidth; // Force synchronous reflow so animation restarts every time
+      educationCardEl.classList.add('education-card-wobble');
+    };
+
+    // Desktop: wobble once when cursor enters the card
+    educationCardEl.addEventListener('pointerenter', (e) => {
+      if (e.pointerType !== 'touch') {
+        wobbleEducationCard();
+      }
+    });
+
+    // Mobile: wobble once when user touches the card
+    educationCardEl.addEventListener('touchstart', wobbleEducationCard, { passive: true });
+
+    // Accessibility: keyboard focus
+    educationCardEl.addEventListener('focusin', wobbleEducationCard);
+
+    // Clean up class on animation completion
+    educationCardEl.addEventListener('animationend', (e) => {
+      if (e.animationName === 'educationCardWobble') {
+        educationCardEl.classList.remove('education-card-wobble');
+      }
     });
   }
 

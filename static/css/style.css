@@ -19,8 +19,8 @@
   --content-max-canvas: 760px;
 
   /* Dedicated Yellow Sticky Note Tokens (Warm Cartoonish Old Paper) */
-  --color-note-yellow: #fff3ad;
-  --color-note-yellow-light: #fff9cf;
+  --color-note-yellow: #fcebae; /* rgb(252, 235, 174) */
+  --color-note-yellow-light: #fdeeb5;
   --color-note-yellow-edge: #e7c95f;
   --color-note-ink: #342b20;
 
@@ -257,11 +257,11 @@ body {
 .nav-link {
   position: relative;
   flex-shrink: 0;
-  padding: 0.375rem 0.75rem;
-  font-size: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  color: var(--color-on-mat);
-  opacity: 0.7;
+  color: #F5ECE3;
+  opacity: 0.75;
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
@@ -273,17 +273,17 @@ body {
 
 @media (min-width: 640px) {
   .nav-link {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.95rem;
   }
 }
 
 /* Chalk scribble underline for active link */
 .nav-link .scribble-underline {
   position: absolute;
-  bottom: 2px;
-  left: 10px;
-  right: 10px;
+  bottom: -2px;
+  left: 6px;
+  right: 6px;
   height: 8px;
   overflow: visible;
   opacity: 0;
@@ -295,44 +295,54 @@ body {
   opacity: 1;
 }
 
-/* Connect button (social link) */
-.connect-btn {
+/* Red Chalk Oval Pill Connect Button (Hand-drawn skeuomorphic button) */
+.nav-connect-pill {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.375rem;
-  margin-left: 0.5rem;
-  padding: 0.375rem 0.875rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--color-on-mat);
+  margin-left: 0.35rem;
+  padding: 0.3rem 1.05rem;
   text-decoration: none;
-  transition: transform 0.15s ease;
   cursor: pointer;
+  transform: rotate(-2deg);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s ease;
+  user-select: none;
 }
 
-.connect-btn:hover {
-  transform: scale(1.02);
+.nav-connect-pill:hover {
+  transform: rotate(-0.5deg) scale(1.06);
+  filter: brightness(1.08);
+}
+
+.nav-connect-pill .connect-pill-bg {
+  position: absolute;
+  inset: -3px -6px;
+  width: calc(100% + 12px);
+  height: calc(100% + 6px);
+  pointer-events: none;
+}
+
+.nav-connect-pill .connect-pill-text {
+  position: relative;
+  z-index: 2;
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 @media (min-width: 640px) {
-  .connect-btn {
-    margin-left: 0.75rem;
-    padding: 0.375rem 1rem;
-    font-size: 0.875rem;
+  .nav-connect-pill {
+    margin-left: 0.5rem;
+    padding: 0.35rem 1.2rem;
   }
-}
-
-.connect-btn .connect-bg {
-  position: absolute;
-  inset: -6px;
-  transform: rotate(-7deg);
-  transition: transform 0.15s ease;
-}
-
-.connect-btn:hover .connect-bg {
-  transform: rotate(-2deg) scale(1.03);
+  .nav-connect-pill .connect-pill-text {
+    font-size: 1.35rem;
+  }
 }
 
 /* ---------- Stickers ---------- */
@@ -357,6 +367,23 @@ body {
   transform: translateY(-2px);
 }
 
+/* ---------- Hero Wide Responsive Composition (Arjun Desktop Proportions) ---------- */
+.hero-wide {
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.hero-content {
+  min-width: 0;
+}
+
 /* ---------- Polaroid Photo Card with Pushpin (Arjun Exact Tilt & Proportions) ---------- */
 .polaroid-wrapper {
   position: relative;
@@ -375,14 +402,14 @@ body {
   --polaroid-rot: -8.8deg;
   transform: rotate(var(--polaroid-rot));
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
-  width: 185px;
+  width: 175px;
   cursor: pointer;
 }
 
 @media (min-width: 640px) {
   .polaroid-frame {
-    width: 200px;
-    padding: 9px 9px 34px 9px;
+    width: 175px;
+    padding: 8px 8px 32px 8px;
   }
 }
 
@@ -458,9 +485,9 @@ body {
 .yellow-note-card {
   position: relative;
   z-index: 20;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.42), transparent 42%),
-    linear-gradient(180deg, var(--color-note-yellow-light), var(--color-note-yellow));
+  width: 100%;
+  max-width: none;
+  background: #fcebae !important;
   color: var(--color-note-ink);
   border: 1px solid rgba(145, 108, 22, .20);
   border-radius: 4px 5px 6px 3px;
@@ -482,38 +509,21 @@ body {
   outline-offset: 4px;
 }
 
-/* Note Wobble Animation (CSS Transform Only - Preserves Base Rotation and Rest Position) */
+/* Note Wobble Animation (Subtle, restrained paper response - 380ms ease-out) */
 #yellow-sticky-note.note-wobble,
 .yellow-note-card.note-wobble {
-  animation: noteWobble 0.52s cubic-bezier(0.25, 1.2, 0.5, 1) both !important;
+  animation: noteWobble 380ms ease-out both !important;
 }
 
 @keyframes noteWobble {
-  0% {
-    transform: rotate(var(--note-base-rot, 1deg)) translate3d(0, 0, 0) scale(1);
-    box-shadow: 3px 10px 24px rgba(0,0,0,.42), 0 2px 5px rgba(0,0,0,.18);
+  0%, 100% {
+    transform: rotate(var(--note-base-rot, 1deg)) translateY(0);
   }
-  18% {
-    transform: rotate(calc(var(--note-base-rot, 1deg) - 4.8deg)) translate3d(0, -8px, 0) scale(1.02);
-    box-shadow: 4px 16px 30px rgba(0,0,0,.52), 0 4px 10px rgba(0,0,0,.26);
+  35% {
+    transform: rotate(calc(var(--note-base-rot, 1deg) + 1.2deg)) translateY(-2px);
   }
-  38% {
-    transform: rotate(calc(var(--note-base-rot, 1deg) + 3.8deg)) translate3d(0, 3px, 0) scale(0.99);
-    box-shadow: 2px 8px 18px rgba(0,0,0,.35), 0 2px 4px rgba(0,0,0,.15);
-  }
-  58% {
-    transform: rotate(calc(var(--note-base-rot, 1deg) - 2.2deg)) translate3d(0, -3px, 0) scale(1.008);
-    box-shadow: 3px 12px 22px rgba(0,0,0,.42), 0 3px 7px rgba(0,0,0,.2);
-  }
-  78% {
-    transform: rotate(calc(var(--note-base-rot, 1deg) + 1.0deg)) translate3d(0, 1px, 0) scale(0.998);
-  }
-  90% {
-    transform: rotate(calc(var(--note-base-rot, 1deg) - 0.4deg)) translate3d(0, 0, 0) scale(1);
-  }
-  100% {
-    transform: rotate(var(--note-base-rot, 1deg)) translate3d(0, 0, 0) scale(1);
-    box-shadow: 3px 10px 24px rgba(0,0,0,.42), 0 2px 5px rgba(0,0,0,.18);
+  65% {
+    transform: rotate(calc(var(--note-base-rot, 1deg) - 0.8deg)) translateY(1px);
   }
 }
 
@@ -570,53 +580,165 @@ body {
   color: var(--color-note-ink);
 }
 
-/* ---------- GitHub Activity Card (Off-white Parchment / Paper Card) ---------- */
+/* ---------- GitHub Activity Card (Warm Parchment Paper Card with 4px White Border) ---------- */
 .github-card {
-  background: linear-gradient(145deg, #fffaf2, var(--color-gh-paper));
-  color: var(--color-gh-ink);
-  border: 1px solid var(--color-gh-border);
-  box-shadow: 3px 7px 18px rgba(0,0,0,.30);
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
   position: relative;
-  width: 100%;
-  transform: rotate(-0.6deg);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  width: 87%;
+  max-width: none;
+  margin-top: 28px;
+  margin-left: 0;
+  margin-right: auto;
+  background: #f7efe6 !important;
+  border: 4px solid #ffffff !important;
+  border-radius: 22px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+  transform: rotate(-0.4deg);
+  transform-origin: 50% 10%;
+  isolation: isolate;
+  transition: box-shadow 0.25s ease;
 }
 
+/* Two small muted-brown masking-tape strips behind the top edge */
+.github-card::before,
+.github-card::after {
+  content: "";
+  position: absolute;
+  top: -14px;
+  width: 76px;
+  height: 18px;
+  background: rgba(195, 172, 146, .85);
+  box-shadow: 0 1px 2px rgba(0,0,0,.12);
+  z-index: -1;
+}
+
+.github-card::before {
+  left: 18px;
+  transform: rotate(-6deg);
+}
+
+.github-card::after {
+  right: 18px;
+  transform: rotate(8deg);
+}
+
+.github-paper-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 1.15rem;
+}
+
+@media (min-width: 640px) {
+  .github-paper-card {
+    padding: 0.85rem 1.35rem;
+  }
+}
+
+.github-card .github-title {
+  color: #57534e;
+  font-weight: 500;
+}
+
+.github-card .github-handle,
+.github-card .github-meta {
+  color: #78716c;
+}
+
+/* GitHub Heatmap Viewport & 53-Week Grid (All August Days Visible) */
+.github-chart-viewport {
+  overflow: visible;
+  padding-right: 8px;
+}
+
+.github-heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(53, minmax(0, 1fr));
+  width: 100%;
+}
+
+/* GitHub Card Wobble Animation (Subtle, restrained paper response - 380ms ease-out) */
+.github-card.github-card-wobble,
+.github-paper-card.github-card-wobble {
+  animation: githubCardWobble 380ms ease-out both !important;
+}
+
+@keyframes githubCardWobble {
+  0%, 100% {
+    transform: rotate(-0.4deg) translateY(0);
+  }
+  35% {
+    transform: rotate(-1deg) translateY(-2px);
+  }
+  65% {
+    transform: rotate(0.2deg) translateY(1px);
+  }
+}
+
+.github-chart-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.github-paper-card .text-muted,
+.github-paper-card .text-stone-500,
 .github-card .text-muted,
 .github-card .text-stone-500 {
   color: var(--color-gh-muted);
 }
 
-@media (min-width: 640px) {
+@media (max-width: 767px) {
+  .hero-wide {
+    width: min(100% - 24px, 680px);
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .hero-grid .polaroid-wrapper {
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+  }
+
   .github-card {
-    padding: 1.35rem 1.75rem;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .github-paper-card {
+    width: 100%;
+  }
+
+  .github-chart-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .github-heatmap-grid {
+    min-width: 680px;
+  }
+
+  .github-months-grid {
+    min-width: 680px;
+  }
+
+  @keyframes githubCardWobble {
+    0%, 100% {
+      transform: rotate(0deg) translateY(0);
+    }
+    35% {
+      transform: rotate(-0.6deg) translateY(-2px);
+    }
+    65% {
+      transform: rotate(0.4deg) translateY(1px);
+    }
   }
 }
 
-/* Tape strips on top of the card */
-.github-tape {
-  position: absolute;
-  top: -8px;
-  width: 48px;
-  height: 18px;
-  background: rgba(215, 196, 175, 0.7);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-  pointer-events: none;
-  z-index: 10;
-  backdrop-filter: blur(1px);
-}
-
-.github-tape-left {
-  left: 36px;
-  transform: rotate(-2.5deg);
-}
-
-.github-tape-right {
-  right: 36px;
-  transform: rotate(2deg);
-}
 
 .github-grid-wrapper {
   overflow-x: auto;
@@ -633,16 +755,18 @@ body {
 }
 
 .gh-cell {
-  width: 9.5px;
-  height: 9.5px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 11px;
+  max-height: 11px;
   border-radius: 2px;
   transition: transform 0.1s ease;
 }
 
 @media (min-width: 640px) {
   .gh-cell {
-    width: 10px;
-    height: 10px;
+    max-width: 12px;
+    max-height: 12px;
   }
 }
 
@@ -1051,12 +1175,464 @@ body {
   50% { opacity: 0.35; }
 }
 
+/* ============================================================
+   WHAT I'VE BEEN UPTO LATELY — CLOTHESLINE HANGING CARDS
+   ============================================================ */
+.lately-section {
+  position: relative;
+  width: 100%;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  padding-bottom: 3.5rem;
+}
+
+.clothesline-track {
+  position: relative;
+  width: 100%;
+  margin-top: 2.5rem;
+  padding-top: 20px;
+}
+
+/* Horizontal hanging rope */
+.clothesline-rope {
+  position: absolute;
+  top: 14px;
+  left: -20px;
+  right: -20px;
+  height: 3.5px;
+  background: linear-gradient(90deg, transparent 0%, #B88958 4%, #9E703D 50%, #B88958 96%, transparent 100%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.45);
+  border-radius: 2px;
+  z-index: 10;
+}
+
+/* Masking-tape tabs holding rope ends to chalkboard */
+.clothesline-rope::before,
+.clothesline-rope::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  width: 52px;
+  height: 20px;
+  background: rgba(215, 195, 170, 0.65);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  z-index: 12;
+}
+
+.clothesline-rope::before {
+  left: 24px;
+  transform: rotate(-6deg);
+}
+
+.clothesline-rope::after {
+  right: 24px;
+  transform: rotate(8deg);
+}
+
+/* Cards Row Container (Smooth horizontal scroll on mobile, 4-column grid on desktop) */
+.clothesline-cards-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1.5rem 0.5rem 2rem 0.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.clothesline-cards-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.clothesline-cards-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+@media (min-width: 1024px) {
+  .clothesline-cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: start;
+    gap: 1.35rem;
+    overflow-x: visible;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Hanging Polaroid Paper Card — Classic Photographic Print Shape */
+.hanging-card {
+  position: relative;
+  flex: 0 0 270px;
+  width: 270px;
+  height: 385px;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: center;
+  background: #faf7f2;
+  border: 1px solid rgba(160, 140, 120, 0.3);
+  border-radius: 4px;
+  padding: 10px 10px 12px 10px;
+  box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.45), 0 3px 8px rgba(0, 0, 0, 0.2);
+  transform-origin: 50% 0%;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  z-index: 5;
+}
+
+.hanging-card:hover {
+  transform: rotate(0deg) translateY(-5px) scale(1.02) !important;
+  box-shadow: 0 18px 36px -4px rgba(0, 0, 0, 0.6), 0 6px 14px rgba(0, 0, 0, 0.3);
+  z-index: 25;
+}
+
+/* Card Media Frame (Fixed uniform height across all cards) */
+.hanging-card .card-media-frame {
+  width: 100%;
+  height: 175px;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  background: #1c1917;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Card Body (Takes remaining height and pushes links to bottom) */
+.hanging-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding-top: 8px;
+}
+
+.hanging-card .card-links {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Natural Card Tilts */
+.hanging-card-1 {
+  transform: rotate(-1.5deg);
+}
+
+.hanging-card-2 {
+  transform: rotate(1.2deg);
+}
+
+.hanging-card-3 {
+  transform: rotate(-0.8deg);
+}
+
+.hanging-card-4 {
+  transform: rotate(1.5deg);
+}
+
+/* Clothespin Wooden Clip */
+.card-clothespin {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 32px;
+  z-index: 15;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  pointer-events: none;
+}
+
+
 .animate-board-lines {
   animation: boardLinesPulse 8s ease-in-out infinite;
 }
 
 /* ============================================================
-   SVG CHALK FILTERS (defined inline in HTML for browser compat)
+   PROJECTS SECTION & CARDS
    ============================================================ */
+.projects-section,
+.education-section {
+  margin-top: 3.5rem;
+}
 
-/* Filter styles applied through SVG filter attribute */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.chalk-project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(34, 34, 34, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1.5px dashed rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  padding: 1.35rem 1.25rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.25s ease;
+}
+
+.chalk-project-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  border-color: rgba(227, 83, 66, 0.7);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 20px rgba(227, 83, 66, 0.18);
+}
+
+.chalk-project-card:nth-child(1) {
+  transform: rotate(-0.5deg);
+}
+.chalk-project-card:nth-child(2) {
+  transform: rotate(0.6deg);
+}
+.chalk-project-card:nth-child(3) {
+  transform: rotate(-0.4deg);
+}
+
+.chalk-project-card:nth-child(1):hover {
+  transform: translateY(-5px) rotate(-0.2deg) scale(1.01);
+}
+.chalk-project-card:nth-child(2):hover {
+  transform: translateY(-5px) rotate(0.2deg) scale(1.01);
+}
+.chalk-project-card:nth-child(3):hover {
+  transform: translateY(-5px) rotate(-0.1deg) scale(1.01);
+}
+
+/* Chalk corner tape strips */
+.project-card-tape {
+  position: absolute;
+  top: -9px;
+  right: 18px;
+  width: 48px;
+  height: 16px;
+  background: rgba(235, 215, 175, 0.55);
+  transform: rotate(3deg);
+  border-left: 2px dashed rgba(200, 180, 140, 0.4);
+  border-right: 2px dashed rgba(200, 180, 140, 0.4);
+  pointer-events: none;
+}
+
+/* Tech tag pills */
+.project-tech-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.72rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background: rgba(255, 255, 255, 0.07);
+  color: #F5ECE3;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   EDUCATION TAPED PAPER CARD & TIMELINE ENTRY
+   ============================================================ */
+.education-section {
+  margin-top: 3.5rem;
+  position: relative;
+}
+
+.education-taped-card {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background: #f7efe6 !important;
+  border: 4px solid #ffffff !important;
+  border-radius: 22px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+  transform: rotate(0.4deg);
+  transform-origin: 50% 10%;
+  isolation: isolate;
+  cursor: default;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: box-shadow 0.25s ease;
+}
+
+/* Education Card Wobble Animation (Subtle restrained paper response - 380ms ease-out) */
+.education-taped-card.education-card-wobble {
+  animation: educationCardWobble 380ms ease-out both !important;
+}
+
+@keyframes educationCardWobble {
+  0%, 100% {
+    transform: rotate(0.4deg) translateY(0);
+  }
+  35% {
+    transform: rotate(1.1deg) translateY(-2px);
+  }
+  65% {
+    transform: rotate(-0.1deg) translateY(1px);
+  }
+}
+
+/* Two muted-brown masking-tape strips behind the top edge */
+.education-taped-card::before,
+.education-taped-card::after {
+  content: "";
+  position: absolute;
+  top: -14px;
+  width: 76px;
+  height: 18px;
+  background: rgba(195, 172, 146, .85);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .12);
+  z-index: -1;
+}
+
+.education-taped-card::before {
+  left: 20px;
+  transform: rotate(-5deg);
+}
+
+.education-taped-card::after {
+  right: 20px;
+  transform: rotate(7deg);
+}
+
+.education-paper-inner {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.85rem 1.25rem 0.95rem;
+}
+
+@media (min-width: 640px) {
+  .education-paper-inner {
+    padding: 0.95rem 1.45rem 1.05rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .education-taped-card {
+    width: 100%;
+  }
+}
+
+/* Small bold dark heading above the entry */
+.education-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #57534e;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(222, 210, 197, 0.8);
+}
+
+/* Single timeline entry container */
+.education-timeline-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+/* Round college / emblem badge on the left */
+.college-emblem-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #e7dfd5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.education-details-col {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Header row: College name & Location */
+.education-header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* College name: bold dark text with subtle orange wavy underline */
+.college-name {
+  font-weight: 700;
+  color: #1c1917;
+  font-size: 0.92rem;
+  line-height: 1.3;
+  text-decoration: underline wavy #E35342;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Location: red handwritten text */
+.college-location {
+  font-family: 'Caveat', cursive;
+  color: #E35342;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Dotted timeline line & small red dot */
+.education-timeline-body {
+  position: relative;
+  padding-left: 14px;
+  margin-top: 6px;
+  margin-left: 3px;
+  border-left: 2px dotted #d6cec5;
+  padding-bottom: 2px;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 4px;
+  left: -4.5px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #E35342;
+}
+
+.timeline-content {
+  margin-top: -3px;
+}
+
+/* Degree: bold dark text */
+.degree-title {
+  font-weight: 700;
+  color: #1c1917;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+/* Major and final-year status: muted grey text */
+.degree-major,
+.degree-status {
+  color: #78716c;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  margin-top: 1.5px;
+}
+
+
